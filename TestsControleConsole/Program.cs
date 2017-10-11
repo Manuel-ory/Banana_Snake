@@ -20,12 +20,18 @@ namespace TestsControleConsole
 
             for (int i = 0; i < width; i++)
             {
-                upDownLines += "_";
+                
 
                 if ((i == 0) || (i == width - 1))
+                {
                     otherLines += "|";
+                    upDownLines += "+";
+                }
                 else
+                {
                     otherLines += " ";
+                    upDownLines += "-";
+                }
             }
 
             for (int i = 0; i < height; i++)
@@ -34,6 +40,7 @@ namespace TestsControleConsole
                     result += upDownLines + "\n";
                 else
                     result += otherLines + "\n";
+                
 
             }
 
