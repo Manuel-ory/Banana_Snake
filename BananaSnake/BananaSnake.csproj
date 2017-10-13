@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ISnake.cs" />
+    <Compile Include="Model\Direction.cs" />
+    <Compile Include="Model\Position.cs" />
+    <Compile Include="Model\Snake.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
