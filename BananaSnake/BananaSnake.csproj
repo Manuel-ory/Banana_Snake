@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\UpdateSnake.cs" />
     <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Snake.cs" />
@@ -52,7 +53,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
