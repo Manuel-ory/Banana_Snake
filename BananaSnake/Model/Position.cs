@@ -11,7 +11,8 @@ namespace BananaSnake.Model
     /// </summary>
     class Position
     {
-        public int x = 40;
-        public int y = 25; 
+         public int x { get; set; }
+         public int y { get; set; }
+
     }
 }

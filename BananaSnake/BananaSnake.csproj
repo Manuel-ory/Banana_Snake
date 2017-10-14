@@ -42,18 +42,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\GameArea.cs" />
+    <Compile Include="Model\Score.cs" />
+    <Compile Include="Model\Fruit.cs" />
     <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Snake.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ScoreView.cs" />
+    <Compile Include="View\FruitView.cs" />
+    <Compile Include="View\SerpentView.cs" />
+    <Compile Include="View\GameAreaView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
