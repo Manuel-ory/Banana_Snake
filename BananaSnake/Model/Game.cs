@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model
 {
-    /// <summary>
-    /// Define the coordinates (x, y) of a position 
-    /// </summary>
-    class Position
+    class Game
     {
-        public int x = 40;
-        public int y = 25; 
+        public bool isGameOn = true;
+        public bool isWallHit = false;
     }
 }
