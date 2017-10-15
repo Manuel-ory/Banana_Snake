@@ -12,6 +12,8 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
+            Console.Title = "BananaSnake game";
+
             //Setup the game aera view
             GameAreaView.SetAeraSize();
             GameAreaView.Draw();
