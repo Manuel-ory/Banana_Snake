@@ -38,5 +38,10 @@ namespace BananaSnake.Model
         {
             BodyPosition.RemoveAt(BodyPosition.Count-1);
         }
+
+        public Snake()
+        {
+            this.HeadPosition = new Position();
+        }
     }
 }

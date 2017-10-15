@@ -43,7 +43,7 @@ namespace BananaSnake.Controller
                 }
                 Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("))))");
+                Console.WriteLine("<■■■■");
 
             } while (game.isGameOn);
 
