@@ -1,5 +1,6 @@
 ﻿using BananaSnake.View;
 using BananaSnake.Model;
+using BananaSnake.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,12 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
+            
             Console.Title = "BananaSnake game";
+
+            Snake snakeModel = new Snake();
+            Game gameModel = new Game();
+            Score scoreModel = new Score();
 
             //Setup the game aera view
             GameAreaView.SetAeraSize();
@@ -20,10 +26,13 @@ namespace BananaSnake
 
             // Get the snake to apear on the console 
             SerpentView serpent = new SerpentView();
-            serpent.DisplaySerpent();
+            serpent.DisplaySerpent(snakeModel);
+
+            // Get snake to move 
+            ControlKey keyController = new ControlKey();
+            keyController.GetSnakeTomove(snakeModel, gameModel);
 
             //Setup the score model & view
-            Score scoreModel = new Score();
             scoreModel.ScoreValue = 20;
             ScoreView.Draw(scoreModel);
 

@@ -8,6 +8,7 @@ namespace BananaSnake.Model
 {
     class Snake
     {
+        public bool isWallHit = false;
         /// <summary>
         /// Store the current position of the head of the snake.
         /// </summary>
@@ -41,7 +42,16 @@ namespace BananaSnake.Model
 
         public Snake()
         {
-            this.HeadPosition = new Position();
+            this.HeadPosition = new Position(25, 19);
+        }
+
+        public bool DidSnakeHitWall()
+        {
+            if (this.HeadPosition.x == 1 || this.HeadPosition.x == 50 || this.HeadPosition.y == 1 || this.HeadPosition.y == 20)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -14,11 +14,11 @@ namespace BananaSnake.Model
         public int x { get; set; }
         public int y { get; set; }
 
-        public Position()
+        public Position(int x, int y)
         {
             // Define the initial position of the snake 
-            this.x = 25;
-            this.y = 19;
+            this.x = x;
+            this.y = y;
         }
 
     }
