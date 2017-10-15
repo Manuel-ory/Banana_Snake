@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using tableSize = BananaSnake.Model.Position;
 
 namespace BananaSnake.Model
 {
     class GameArea
     {
-        public tableSize GameAreaSize { get; set; }
+        private int areaHeight;
+        private int areaWidth;
+
+        public int Height { get => areaHeight; }
+        public int Width { get => areaWidth; }
+
+        public GameArea(int width=50, int height=20)
+        {
+            if ((width > 0) && (height > 0))
+            {
+                areaHeight = height;
+                areaWidth = width;
+            }
+            else
+                throw new Exception("Les valeurs de dimentions doivent être strictement positives.");
+        }
     }
 }

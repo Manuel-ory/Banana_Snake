@@ -21,7 +21,7 @@ namespace BananaSnake
             Score scoreModel = new Score();
 
             //Setup the game aera view
-            GameAreaView.SetAeraSize();
+            GameAreaView.GameAera= new GameArea();
             GameAreaView.Draw();
 
             // Get the snake to apear on the console 

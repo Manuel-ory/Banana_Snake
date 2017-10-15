@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BananaSnake.Model;
 
 namespace BananaSnake.View
 {
     class GameAreaView
     {
-        private static int gameAeraWidth = 50;
-        private static int gameAeraHeight = 20;
+        private static GameArea gameAera;
+
+        public static GameArea GameAera { get => gameAera; set => gameAera = value; }
 
         /// <summary>
         /// Sert à générer le cadre de la zone de jeu.
@@ -54,8 +56,8 @@ namespace BananaSnake.View
         /// </summary>
         public static void Draw()
         {
-            int windowWidth = gameAeraWidth + 2;
-            int windowHeight = gameAeraHeight + 4;
+            int windowWidth = gameAera.Width + 2;
+            int windowHeight = gameAera.Height + 4;
             string borders = GenerateBorder(windowWidth, windowHeight);
 
             Console.Clear();
@@ -65,24 +67,6 @@ namespace BananaSnake.View
             Console.Write(borders);
             ScoreView.SetScorePosition(windowHeight - 2);
 
-        }
-
-        /// <summary>
-        /// (Re)définit la taille de l'aire de jeu. La fenêtre sera plus grande pour permettre l'affichage des bordures et du score.
-        /// </summary>
-        /// <param name="width">Largeur de l'aire de jeu (défaut 50)</param>
-        /// <param name="height">Hauteur de l'aire de jeu (défaut 20)</param>
-        /// <returns>true si les valeurs sont valides et ont été modifiées.</returns> 
-        public static bool SetAeraSize(int width =50, int height = 20)
-        {
-            if ((width > 0) && (height > 0))
-            {
-                gameAeraWidth = width;
-                gameAeraHeight = height;
-                return true;
-            }
-            else
-                return false;
         }
 
 
