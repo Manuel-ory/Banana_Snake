@@ -17,7 +17,7 @@ namespace BananaSnake.View
         /// <param name="width">Largeur de la fenêtre</param>
         /// <param name="height">Hauteur de la fenêtre</param>
         /// <returns>La chaine de caractère utilisée pour afficher le cadre de la zone de jeu</returns>
-        static private string generateBorder(int width, int height)
+        static private string GenerateBorder(int width, int height)
         {
             string result = "";
             string upDownLines = "";
@@ -56,13 +56,14 @@ namespace BananaSnake.View
         {
             int windowWidth = gameAeraWidth + 2;
             int windowHeight = gameAeraHeight + 4;
-            string borders = generateBorder(windowWidth, windowHeight);
+            string borders = GenerateBorder(windowWidth, windowHeight);
 
             Console.Clear();
             Console.CursorVisible = false;
             Console.SetWindowSize(windowWidth, windowHeight+1);
             Console.SetBufferSize(windowWidth, windowHeight+1);
             Console.Write(borders);
+            ScoreView.SetScorePosition(windowHeight - 2);
 
         }
 
@@ -72,7 +73,7 @@ namespace BananaSnake.View
         /// <param name="width">Largeur de l'aire de jeu (défaut 50)</param>
         /// <param name="height">Hauteur de l'aire de jeu (défaut 20)</param>
         /// <returns>true si les valeurs sont valides et ont été modifiées.</returns> 
-        public static bool setAeraSize(int width =50, int height = 20)
+        public static bool SetAeraSize(int width =50, int height = 20)
         {
             if ((width > 0) && (height > 0))
             {
