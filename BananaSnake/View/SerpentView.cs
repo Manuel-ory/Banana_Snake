@@ -11,11 +11,14 @@ namespace BananaSnake.View
     {
         private Snake snake = new Snake();
 
+        /// <summary>
+        /// Get the snake to apear on the console
+        /// </summary>
         public void DisplaySerpent()
         {
             Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("<■■■■");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("■■■■>");
         }
     }
 }
