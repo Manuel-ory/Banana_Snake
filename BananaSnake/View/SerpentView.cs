@@ -16,8 +16,7 @@ namespace BananaSnake.View
         {
             Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("<■■■");
-            //Console.WriteLine((char)2);
+            Console.WriteLine("■■■>");
             Console.ResetColor();
         }
     }
