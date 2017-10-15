@@ -16,7 +16,7 @@ namespace BananaSnake.Model
 
         public Position()
         {
-            // position initiale du serpent 
+            // Define the initial position of the snake 
             this.x = 25;
             this.y = 19;
         }
