@@ -17,8 +17,9 @@ namespace BananaSnake.View
         public void DisplaySerpent()
         {
             Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("■■■■>");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("<■■■■");
+            Console.ResetColor();
         }
     }
 }

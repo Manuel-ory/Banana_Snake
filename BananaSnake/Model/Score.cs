@@ -8,7 +8,8 @@ namespace BananaSnake.Model
 {
     class Score
     {
-        private int score { get; set; }
+        private int score;
 
+        public int ScoreValue { get => score; set => score = value; }
     }
 }
