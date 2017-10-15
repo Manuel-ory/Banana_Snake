@@ -11,9 +11,8 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("***************************************************************************************************************");
-            Console.WriteLine("********************************************** BananaSnake game ***********************************************");
-            Console.WriteLine("***************************************************************************************************************");
+            GameAreaView.setAeraSize();
+            GameAreaView.Draw();
 
             // Get the snake to apear on the console 
             SerpentView serpent = new SerpentView();
