@@ -30,32 +30,27 @@ namespace BananaSnake.Controller
                     case ConsoleKey.Q:                  
                         snake.HeadPosition.x--;
                         snake.HeadDirection = Direction.left;
-
                         break;
 
                     case ConsoleKey.S:
                         snake.HeadPosition.y++;
                         snake.HeadDirection = Direction.down;
-
                         break;
+
                     case ConsoleKey.Z:
                         snake.HeadPosition.y--;
                         snake.HeadDirection = Direction.up;
-      
                         break;
 
                     case ConsoleKey.D:
                         snake.HeadPosition.x++;
                         snake.HeadDirection = Direction.right;
-                   
                         break;
 
                 }
 
                 View.SnakeView.ClearTail(snake.TailPosition);
                 View.SnakeView.DrawHead(snake);
-
-                //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
 
                 snake.isWallHit = snake.DidSnakeHitWall();
                 if (snake.isWallHit)
