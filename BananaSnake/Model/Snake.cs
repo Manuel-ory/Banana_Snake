@@ -56,7 +56,6 @@ namespace BananaSnake.Model
             this.AddHeadToBody();
             //Add head of the snake
             this.HeadPosition.x++;
-            this.AddHeadToBody();
         }
 
         public bool DidSnakeHitWall()
