@@ -29,7 +29,8 @@ namespace BananaSnake.Model
         /// </summary>
         public void AddHeadToBody()
         {
-            BodyPosition.Insert(0, HeadPosition);
+
+            BodyPosition.Insert(0,new Position( HeadPosition));
         }
 
         /// <summary>
@@ -37,8 +38,11 @@ namespace BananaSnake.Model
         /// </summary>
         public void DeleteBodyEnd()
         {
+            TailPosition = BodyPosition[BodyPosition.Count-1];
             BodyPosition.RemoveAt(BodyPosition.Count-1);
         }
+
+        public Position TailPosition { get; set; }
 
 
         /// <summary>
@@ -48,6 +52,8 @@ namespace BananaSnake.Model
         {
             //Add three parts of body
             this.HeadPosition = new Position(25, 19);
+            
+            this.TailPosition = new Position(25, 19);
             this.BodyPosition = new List<Position>();
             this.AddHeadToBody();
             this.HeadPosition.x++;

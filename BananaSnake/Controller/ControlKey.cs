@@ -14,7 +14,6 @@ namespace BananaSnake.Controller
 
         // Get the snake to apear on the console 
         SerpentView serpentView = new SerpentView();
-        FruitView fruitView = new FruitView();
         
         public void GetSnakeTomove(Snake snake, Game game)
         {
@@ -40,13 +39,13 @@ namespace BananaSnake.Controller
 
                     case ConsoleKey.S:
                         snake.HeadPosition.y++;
-                        snake.HeadDirection = Direction.up;
+                        snake.HeadDirection = Direction.down;
                         //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
                         //Console.Write("    ");
                         break;
                     case ConsoleKey.Z:
                         snake.HeadPosition.y--;
-                        snake.HeadDirection = Direction.down;
+                        snake.HeadDirection = Direction.up;
                         //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
                         //Console.Write("    ");
                         break;
@@ -59,8 +58,11 @@ namespace BananaSnake.Controller
                         break;
 
                 }
-                Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                serpentView.DisplaySerpent(snake);
+
+                View.SnakeView.ClearTail(snake.TailPosition);
+                View.SnakeView.DrawHead(snake);
+
+                //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
 
                 snake.isWallHit = snake.DidSnakeHitWall();
                 if (snake.isWallHit)

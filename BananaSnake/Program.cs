@@ -25,14 +25,9 @@ namespace BananaSnake
             GameAreaView.GameAera= new GameArea();
             GameAreaView.Draw();
 
-            // Get the snake to apear on the console 
-            SerpentView serpent = new SerpentView();
-            serpent.DisplaySerpent(snakeModel);
-
             // Get the fruit to apear on the console 
             FruitView fruit = new FruitView();
             fruit.DisplayFruit(fruitModel);
-
 
             // Get snake to move 
             ControlKey keyController = new ControlKey();
