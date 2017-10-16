@@ -43,6 +43,7 @@ namespace BananaSnake.Model
         public Snake()
         {
             this.HeadPosition = new Position(25, 19);
+
         }
 
         public bool DidSnakeHitWall()

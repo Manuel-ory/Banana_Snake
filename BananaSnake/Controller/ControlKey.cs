@@ -17,30 +17,46 @@ namespace BananaSnake.Controller
         
         public void GetSnakeTomove(Snake snake, Game game)
         {
+
             do
             {
+
+                snake.AddHeadToBody();
+                
+                if (game.fruitEat == false)
+                {
+                    snake.DeleteBodyEnd();
+                }
+
                 switch (command)
                 {
-                    case ConsoleKey.LeftArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
+                    case ConsoleKey.LeftArrow:                  
                         snake.HeadPosition.x--;
+                        snake.HeadDirection = Direction.left;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
+
                     case ConsoleKey.DownArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
                         snake.HeadPosition.y++;
+                        snake.HeadDirection = Direction.down;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
                     case ConsoleKey.UpArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
                         snake.HeadPosition.y--;
+                        snake.HeadDirection = Direction.up;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
+
                     case ConsoleKey.RightArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
                         snake.HeadPosition.x++;
+                        snake.HeadDirection = Direction.right;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
+
                 }
                 Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
                 serpentView.DisplaySerpent(snake);
@@ -62,6 +78,7 @@ namespace BananaSnake.Controller
             } while (game.isGameOn);
 
         }
+
 
     }
 }
