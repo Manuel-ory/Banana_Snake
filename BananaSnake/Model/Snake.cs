@@ -40,9 +40,23 @@ namespace BananaSnake.Model
             BodyPosition.RemoveAt(BodyPosition.Count-1);
         }
 
+
+        /// <summary>
+        /// Constructor of the snake. Snake of 4 parts with a determinate position
+        /// </summary>
         public Snake()
         {
+            //Add three parts of body
             this.HeadPosition = new Position(25, 19);
+            this.BodyPosition = new List<Position>();
+            this.AddHeadToBody();
+            this.HeadPosition.x++;
+            this.AddHeadToBody();
+            this.HeadPosition.x++;
+            this.AddHeadToBody();
+            //Add head of the snake
+            this.HeadPosition.x++;
+            this.AddHeadToBody();
         }
 
         public bool DidSnakeHitWall()
