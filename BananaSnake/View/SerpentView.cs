@@ -9,15 +9,57 @@ namespace BananaSnake.View
 {
     class SerpentView
     {
-        /// <summary>
-        /// Get the snake to apear on the console
-        /// </summary>
-        public void DisplaySerpent(Snake snake)
+
+        public static void ClearTail(Position tailPos)
         {
-            Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("■■■>");
+            Console.SetCursorPosition(tailPos.x + 1, tailPos.y + 1);
+            Console.Write(' ');
             Console.ResetColor();
+        }
+
+        /*public static void ClearTail(Snake snake)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            //Console.SetCursorPosition(tailPos.x + 1, tailPos.y + 1);
+            Console.Write(' ');
+            Console.ResetColor();
+        }*/
+
+        /// <summary>
+        /// Redessine la tête du serpent
+        /// </summary>
+        /// <param name="snake">Serpent dont on redessine la tête</param>
+        public static void DrawHead(Snake snake)
+        {
+            //Dessine la tête
+            char head =' ';
+            switch (snake.HeadDirection)
+            {
+                case Direction.up:
+                    head = '^';
+                    break;
+                case Direction.right:
+                    head = '>';
+                    break;
+                case Direction.down:
+                    head = 'v';
+                    break;
+                case Direction.left:
+                    head = '<';
+                    break;
+                default:
+                    break;
+            }
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.SetCursorPosition(snake.HeadPosition.x + 1, snake.HeadPosition.y + 1);
+            Console.Write(head);
+
+            //Remplace la dernière tête
+            Console.SetCursorPosition(snake.BodyPosition.First().x + 1, snake.BodyPosition.First().y + 1);
+            Console.Write('■');
+            Console.ResetColor();
+
         }
     }
 }
