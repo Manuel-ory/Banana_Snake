@@ -10,7 +10,7 @@ namespace BananaSnake.Controller
 {
     class ControlKey
     {        
-        ConsoleKey command = Console.ReadKey().Key;
+        ConsoleKey command = Console.ReadKey(true).Key;
 
         // Get the snake to apear on the console 
         SerpentView serpentView = new SerpentView();
@@ -30,27 +30,27 @@ namespace BananaSnake.Controller
 
                 switch (command)
                 {
-                    case ConsoleKey.LeftArrow:                  
+                    case ConsoleKey.Q:                  
                         snake.HeadPosition.x--;
                         snake.HeadDirection = Direction.left;
                         //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
                         //Console.Write("    ");
                         break;
 
-                    case ConsoleKey.DownArrow:
+                    case ConsoleKey.S:
                         snake.HeadPosition.y++;
-                        snake.HeadDirection = Direction.down;
-                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        //Console.Write("    ");
-                        break;
-                    case ConsoleKey.UpArrow:
-                        snake.HeadPosition.y--;
                         snake.HeadDirection = Direction.up;
                         //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
                         //Console.Write("    ");
                         break;
+                    case ConsoleKey.Z:
+                        snake.HeadPosition.y--;
+                        snake.HeadDirection = Direction.down;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
+                        break;
 
-                    case ConsoleKey.RightArrow:
+                    case ConsoleKey.D:
                         snake.HeadPosition.x++;
                         snake.HeadDirection = Direction.right;
                         //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
@@ -71,7 +71,7 @@ namespace BananaSnake.Controller
 
                 if (Console.KeyAvailable)
                 {
-                    command = Console.ReadKey().Key;
+                    command = Console.ReadKey(true).Key;
                 }
                 System.Threading.Thread.Sleep(game.gameSpeed);
                     
