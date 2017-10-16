@@ -14,6 +14,7 @@ namespace BananaSnake.Controller
 
         // Get the snake to apear on the console 
         SerpentView serpentView = new SerpentView();
+        FruitView fruitView = new FruitView();
         
         public void GetSnakeTomove(Snake snake, Game game)
         {
@@ -78,6 +79,21 @@ namespace BananaSnake.Controller
             } while (game.isGameOn);
 
         }
+
+        public void GenerateFruit(Game game)
+        {
+            Random randomx = new Random();
+            Random randomy = new Random();
+
+            do
+            {
+                Fruit fruit = new Fruit(randomx.Next(3, 48), randomx.Next(3, 48));
+                fruitView.DisplayFruit(fruit);
+
+            } while (game.isGameOn == true);
+        }
+
+
 
 
     }
