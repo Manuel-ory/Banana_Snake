@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.View
 {
-    class SerpentView
+    class SnakeView
     {
 
         public static void ClearTail(Position tailPos)
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            //Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.SetCursorPosition(tailPos.x + 1, tailPos.y + 1);
             Console.Write(' ');
-            Console.ResetColor();
+            //Console.ResetColor();
         }
 
         /*public static void ClearTail(Snake snake)
