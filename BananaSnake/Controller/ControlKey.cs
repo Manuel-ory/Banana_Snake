@@ -10,40 +10,56 @@ namespace BananaSnake.Controller
 {
     class ControlKey
     {        
-        ConsoleKey command = Console.ReadKey().Key;
-
-        // Get the snake to apear on the console 
-        SerpentView serpentView = new SerpentView();
+        ConsoleKey command = Console.ReadKey(true).Key;
         
         public void GetSnakeTomove(Snake snake, Game game)
         {
+
             do
             {
+
+                snake.AddHeadToBody();
+                
+                if (game.fruitEat == false)
+                {
+                    snake.DeleteBodyEnd();
+                }
+
                 switch (command)
                 {
-                    case ConsoleKey.LeftArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
+                    case ConsoleKey.Q:                  
                         snake.HeadPosition.x--;
+                        snake.HeadDirection = Direction.left;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
-                    case ConsoleKey.DownArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
+
+                    case ConsoleKey.S:
                         snake.HeadPosition.y++;
+                        snake.HeadDirection = Direction.down;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
-                    case ConsoleKey.UpArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
+                    case ConsoleKey.Z:
                         snake.HeadPosition.y--;
+                        snake.HeadDirection = Direction.up;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
-                    case ConsoleKey.RightArrow:
-                        Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        Console.Write("    ");
+
+                    case ConsoleKey.D:
                         snake.HeadPosition.x++;
+                        snake.HeadDirection = Direction.right;
+                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
+                        //Console.Write("    ");
                         break;
+
                 }
-                Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                serpentView.DisplaySerpent(snake);
+
+                View.SnakeView.ClearTail(snake.TailPosition);
+                View.SnakeView.DrawHead(snake);
+
+                //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
 
                 snake.isWallHit = snake.DidSnakeHitWall();
                 if (snake.isWallHit)
@@ -55,13 +71,14 @@ namespace BananaSnake.Controller
 
                 if (Console.KeyAvailable)
                 {
-                    command = Console.ReadKey().Key;
+                    command = Console.ReadKey(true).Key;
                 }
                 System.Threading.Thread.Sleep(game.gameSpeed);
                     
             } while (game.isGameOn);
 
         }
+
 
     }
 }

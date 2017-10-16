@@ -21,5 +21,12 @@ namespace BananaSnake.Model
             this.y = y;
         }
 
+        public Position(Position PositionToClone)
+        {
+            // Define the initial position of the snake 
+            x = PositionToClone.x;
+            y = PositionToClone.y;
+        }
+
     }
 }

@@ -11,6 +11,7 @@ namespace BananaSnake.Model
         public bool isGameOn = true; //jeu en cours
         public bool isSnakeHitHimself = false; //condition partie perdue
         public int gameSpeed;
+        public bool fruitEat = false;
 
         public bool isWallHit = false; // Condition passage autre coté a voir si nécessaire ici ?
 
@@ -21,6 +22,7 @@ namespace BananaSnake.Model
             this.isGameOn = true;
             this.isSnakeHitHimself = false;
             this.isWallHit = false;
+            this.fruitEat = false;
             this.gameSpeed = 150;
         }
 
