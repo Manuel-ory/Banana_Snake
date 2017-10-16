@@ -6,25 +6,20 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model
 {
-    class Game
+    static class Game
     {
-        public bool isGameOn = true; //jeu en cours
-        public bool isSnakeHitHimself = false; //condition partie perdue
-        public int gameSpeed;
-        public bool fruitEat = false;
+        public static bool isGameOn=true; //jeu en cours
+        public static bool isSnakeHitHimself=false; //condition partie perdue
+        public static int gameSpeed=150;
+        public static bool fruitEat=false;
 
-        public bool isWallHit = false; // Condition passage autre coté a voir si nécessaire ici ?
+        public static bool isWallHit=false; // Condition passage autre coté a voir si nécessaire ici ?
+
+        public static ConsoleKey lastControl=  new ConsoleKey();
 
     
 
-        public Game()
-        {
-            this.isGameOn = true;
-            this.isSnakeHitHimself = false;
-            this.isWallHit = false;
-            this.fruitEat = false;
-            this.gameSpeed = 150;
-        }
+    
 
     }
 }

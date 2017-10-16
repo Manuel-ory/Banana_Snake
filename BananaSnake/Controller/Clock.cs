@@ -12,7 +12,7 @@ namespace BananaSnake.Controller
 
         private static System.DateTime nextTick = new System.DateTime();
 
-        private static bool activeClock = false;
+        private static bool activeClock = false; // false if pause or game not lauched
         public static bool ActiveClock
         {
             get => activeClock;
@@ -29,8 +29,12 @@ namespace BananaSnake.Controller
 
         static void StartClock()
         {
-            while(activeClock)
+
+            ControlKey keyController = new ControlKey();
+            while (activeClock)
             {
+
+                //keyController.GetSnakeTomove
                 if(DateTime.Now >= nextTick)
                 {
                     nextTick += new TimeSpan(0, 0, 0, 0, tickDuration);

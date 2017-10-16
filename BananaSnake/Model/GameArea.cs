@@ -22,7 +22,7 @@ namespace BananaSnake.Model
                 areaWidth = width;
             }
             else
-                throw new Exception("Les valeurs de dimentions doivent être strictement positives.");
+                throw new Exception("Les valeurs de dimensions doivent être strictement positives.");
         }
     }
 }

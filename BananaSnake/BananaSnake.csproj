@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\KeyObserver.cs" />
     <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />
+    <Compile Include="Controller\Observer\IObservable.cs" />
     <Compile Include="Controller\UpdateSnake.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\GameArea.cs" />
