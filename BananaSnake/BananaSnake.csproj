@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />
     <Compile Include="Controller\UpdateSnake.cs" />
     <Compile Include="Model\Game.cs" />
