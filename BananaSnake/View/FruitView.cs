@@ -10,10 +10,10 @@ namespace BananaSnake.View
     class FruitView
     {
 
-        public void DisplayFruit(Fruit fruit, ConsoleColor color)
+        public void DisplayFruit(Fruit fruit)
         {
             Console.SetCursorPosition(fruit.FruitPosition.x, fruit.FruitPosition.y);
-            Console.ForegroundColor = color;
+            Console.ForegroundColor = fruit.FruitColor;
             Console.WriteLine(")");
             Console.ResetColor();
         }

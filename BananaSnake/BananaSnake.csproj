@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\FruitFactory.cs" />
     <Compile Include="Controller\KeyObserver.cs" />
     <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />
