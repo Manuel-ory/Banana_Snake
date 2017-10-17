@@ -22,13 +22,14 @@ namespace BananaSnake.Controller
             return false;
         }
 
+
         /// <summary>
         /// Return true if collision with wall
         /// </summary>
         /// <returns></returns>
-        public bool IsHitWall(Snake snake, GameArea gameArea)
+        public bool IsHitWall(Snake snake, GameArea gameArea, Direction direction)
         {
-            if (snake.HeadPosition.x == 0 || snake.HeadPosition.x == gameArea.Width - 1 || snake.HeadPosition.y == 0 || snake.HeadPosition.y == gameArea.Height - 1)
+            if (snake.HeadPosition.x == 0 || snake.HeadPosition.x == gameArea.Width -1 || snake.HeadPosition.y == 0 || snake.HeadPosition.y == gameArea.Height - 1)
             {
                 return true;
             }
