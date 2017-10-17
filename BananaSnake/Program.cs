@@ -22,7 +22,7 @@ namespace BananaSnake
 
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
-            Fruit fruitModel = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
+            Fruit fruitModel = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18),ConsoleColor.Yellow);
 
 
 
@@ -37,14 +37,13 @@ namespace BananaSnake
 
             // Get snake to move 
             ControlKey keyController = new ControlKey();
-            keyController.GetSnakeTomove(snakeModel, gameModel);
+            keyController.GetSnakeTomove(snakeModel);
 
             //Setup the score model & view
             scoreModel.ScoreValue = 20;
             ScoreView.Draw(scoreModel);
 
             Console.ReadKey();
-            keyObserver.Stop();
 
         }
     }

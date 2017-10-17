@@ -24,14 +24,6 @@ namespace BananaSnake.Model
         }
     
 
-        public Game()
-        {
-            this.isGameOn = true;
-            this.isSnakeHitHimself = false;
-            this.isWallHit = false;
-            this.fruitEat = false;
-            this.gameSpeed = 200;
-        }
 
     }
 }

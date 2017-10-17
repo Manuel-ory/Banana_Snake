@@ -55,9 +55,7 @@ namespace BananaSnake.Controller
                 }
             }
         }
-        }
-        {
+        
 
-        }
     }
 }

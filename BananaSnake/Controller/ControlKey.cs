@@ -53,12 +53,11 @@ namespace BananaSnake.Controller
 
             return newDirection;
         }
-        
-        public void GetSnakeTomove(Snake snake)
+
         FruitView fruitView = new FruitView();
 
 
-        public void GetSnakeTomove(Snake snake, Game game)
+        public void GetSnakeTomove(Snake snake)
         {
             Random randomx = new Random();
             Random randomy = new Random();
@@ -68,16 +67,16 @@ namespace BananaSnake.Controller
 
                 snake.AddHeadToBody();
                 
-                if (Game.fruitEat == false)
+                if (Game.isFruitEat == false)
                 {
                     snake.DeleteBodyEnd();
                    
                 }else
                 {
-                    Fruit fruit = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
+                    Fruit fruit = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18),ConsoleColor.Yellow);
 
                     fruitView.DisplayFruit(fruit);
-                    eatFruit(game, snake, fruit);
+                    eatFruit(snake, fruit);
 
                 }
 
@@ -126,10 +125,10 @@ namespace BananaSnake.Controller
 
         }
 
-        public void eatFruit(Game game , Snake snake , Fruit fruit) {
+        public void eatFruit(Snake snake , Fruit fruit) {
             if (snake.HeadPosition == fruit.FruitPosition)
             {
-                game.fruitEat = false;
+                Game.isFruitEat = false;
             }
             
         }
