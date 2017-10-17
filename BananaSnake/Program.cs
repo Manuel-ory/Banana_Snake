@@ -23,11 +23,11 @@ namespace BananaSnake
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
             Fruit fruitModel = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
-            
+
 
 
             //Setup the game aera view
-            GameAreaView.GameAera= new GameArea();
+            GameAreaView.GameAera = new GameArea();
             GameAreaView.Draw();
 
 
