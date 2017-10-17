@@ -8,6 +8,7 @@ namespace BananaSnake.Model
 {
     class Snake
     {
+        public ConsoleColor SnakeColor; 
         public bool isWallHit = false;
         /// <summary>
         /// Store the current position of the head of the snake.
@@ -62,6 +63,7 @@ namespace BananaSnake.Model
             this.AddHeadToBody();
             //Add head of the snake
             this.HeadPosition.x++;
+            
         }
     }
 }
