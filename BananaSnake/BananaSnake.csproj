@@ -42,11 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\MainControler.cs" />
     <Compile Include="Controller\KeyObserver.cs" />
     <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />
-    <Compile Include="Controller\Observer\IObservable.cs" />
-    <Compile Include="Controller\UpdateSnake.cs" />
+    <Compile Include="Controller\SnakeControler.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\GameArea.cs" />
     <Compile Include="Model\Score.cs" />

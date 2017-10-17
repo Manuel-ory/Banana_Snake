@@ -14,13 +14,15 @@ namespace BananaSnake.Controller
 
         public void startThread()
         {
-            Console.WriteLine("I like thread !");
             while(!_shouldStop)
             {
-               /* if(Console.KeyAvailable)
+               if(Console.KeyAvailable)
                 {
-                    Game.lastControl = Console.ReadKey(true).Key;
-                }*/
+                    lock (Game.lockLastControl)
+                    {
+                        Game.lastControl = Console.ReadKey(true).Key;
+                    }
+                }
             }
         }
 

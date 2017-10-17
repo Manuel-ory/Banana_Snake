@@ -25,8 +25,8 @@ namespace BananaSnake
             GameAreaView.Draw();
 
             KeyObserver keyObserver = new KeyObserver();
-            Thread threadKeyObserver = new Thread(keyObserver.startThread);
-            threadKeyObserver.Start();
+            //Thread threadKeyObserver = new Thread(keyObserver.startThread);
+            //threadKeyObserver.Start();
             // Controller.Clock clock = new Clock(snakeModel, gameModel);
             // Get snake to move 
             ControlKey keyController = new ControlKey();
