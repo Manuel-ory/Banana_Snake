@@ -17,7 +17,6 @@ namespace BananaSnake.Model
         public static bool isWallHit=false; // Condition passage autre coté a voir si nécessaire ici ?
 
         public static ConsoleKey lastControl=  new ConsoleKey();
-        public static Object lockLastControl = new Object();
 
         public static void SwitchPause()
         {
@@ -25,7 +24,14 @@ namespace BananaSnake.Model
         }
     
 
-    
+        public Game()
+        {
+            this.isGameOn = true;
+            this.isSnakeHitHimself = false;
+            this.isWallHit = false;
+            this.fruitEat = false;
+            this.gameSpeed = 200;
+        }
 
     }
 }

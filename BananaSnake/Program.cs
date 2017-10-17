@@ -14,23 +14,30 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
-            
+            Random randomx = new Random();
+            Random randomy = new Random();
+
             Console.Title = "BananaSnake game";
+            TetrisMusic.StartMusic();
 
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
+            Fruit fruitModel = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
+
+
 
             //Setup the game aera view
-            GameAreaView.GameAera= new GameArea();
+            GameAreaView.GameAera = new GameArea();
             GameAreaView.Draw();
 
-            KeyObserver keyObserver = new KeyObserver();
-            //Thread threadKeyObserver = new Thread(keyObserver.startThread);
-            //threadKeyObserver.Start();
-            // Controller.Clock clock = new Clock(snakeModel, gameModel);
+
+            // Get the fruit to apear on the console 
+            FruitView fruit = new FruitView();
+            fruit.DisplayFruit(fruitModel);
+
             // Get snake to move 
             ControlKey keyController = new ControlKey();
-            keyController.GetSnakeTomove(snakeModel);
+            keyController.GetSnakeTomove(snakeModel, gameModel);
 
             //Setup the score model & view
             scoreModel.ScoreValue = 20;

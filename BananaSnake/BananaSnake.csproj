@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CollisionController.cs" />
     <Compile Include="Controller\MainControler.cs" />
-    <Compile Include="Controller\KeyObserver.cs" />
+	<Compile Include="Controller\KeyObserver.cs" />
     <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />
     <Compile Include="Controller\SnakeControler.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Model\Snake.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\EattingFood.cs" />
     <Compile Include="View\ScoreView.cs" />
     <Compile Include="View\FruitView.cs" />
     <Compile Include="View\SnakeView.cs" />
