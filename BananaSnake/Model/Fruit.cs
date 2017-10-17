@@ -10,6 +10,7 @@ namespace BananaSnake.Model
     {
 
         public Position FruitPosition { get; set; }
+        public int existingTicksLeft = 10;
 
     }
 }
