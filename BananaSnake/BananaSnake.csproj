@@ -44,10 +44,6 @@
   <ItemGroup>
     <Compile Include="Controller\CollisionController.cs" />
     <Compile Include="Model\Factory\FruitFactory.cs" />
-    <Compile Include="Controller\KeyObserver.cs" />
-    <Compile Include="Controller\Clock.cs" />
-    <Compile Include="Controller\ControlKey.cs" />
-    <Compile Include="Controller\UpdateSnake.cs" />
     <Compile Include="Controller\MainControler.cs" />
     <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />

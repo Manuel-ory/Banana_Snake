@@ -24,6 +24,10 @@ namespace BananaSnake.Controller
             SnakeControler snakeControler = new SnakeControler();
             CollisionController collisionController = new CollisionController();
 
+            FruitFactory fruitFactory = new FruitFactory();
+            Fruit fruit = fruitFactory.CreateFruit(gameAreaModel);
+
+
             Console.Title = "BananaSnake game";
             GameAreaView.GameAera = gameAreaModel;
             GameAreaView.Draw();
@@ -36,23 +40,24 @@ namespace BananaSnake.Controller
             {
                 //Récupère nouvelle direction serpent
                 newDirection = KeyController.GetLastKey(snakeModel);
-
+                FruitView.DisplayFruit(fruit);
                 if (!Game.isGamePaused)
                 {
                     //Controller collisions
                     //Check collisions (mur, serpent, fruit)
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);
-                    //Game.isFruitEat = collisionController.IsHitFruit(snakeModel,)
+                    Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruit, newDirection);
                     //Act selon collisions
                     //Controller AvancerSerpent
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
                         Game.isWallHit,
-                        false,
+                        Game.isFruitEat,
                         gameAreaModel);
                     //Dessiner jeu
                     SnakeView.ClearTail(snakeModel.TailPosition);
                     SnakeView.DrawHead(snakeModel);
+                    
 
                 }
                 else
