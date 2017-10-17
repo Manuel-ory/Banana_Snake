@@ -11,7 +11,7 @@ namespace BananaSnake.Controller
 {
     class ControlKey
     {        
-        ConsoleKey command = Console.ReadKey(true).Key;
+        //ConsoleKey command = Console.ReadKey(true).Key;
 
 
         public Direction GetLastKey(Snake snake)
@@ -57,7 +57,7 @@ namespace BananaSnake.Controller
         FruitView fruitView = new FruitView();
 
 
-        public void GetSnakeTomove(Snake snake)
+        /*public void GetSnakeTomove(Snake snake)
         {
             Random randomx = new Random();
             Random randomy = new Random();
@@ -123,7 +123,7 @@ namespace BananaSnake.Controller
                     
             } while (Game.isGameOn);
 
-        }
+        }*/
 
         public void eatFruit(Snake snake , Fruit fruit) {
             if (snake.HeadPosition == fruit.FruitPosition)

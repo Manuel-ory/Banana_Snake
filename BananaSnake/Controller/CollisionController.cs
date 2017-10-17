@@ -32,7 +32,7 @@ namespace BananaSnake.Controller
             switch (direction)
             {
                 case Direction.left:
-                    if (snake.HeadPosition.x - 1 == 0)
+                    if (snake.HeadPosition.x == 0)
                         return true;
                     break;
 
@@ -42,7 +42,7 @@ namespace BananaSnake.Controller
                     break;
 
                 case Direction.up:
-                    if (snake.HeadPosition.y - 1 == 0)
+                    if (snake.HeadPosition.y == 0)
                         return true;
                     break;
 

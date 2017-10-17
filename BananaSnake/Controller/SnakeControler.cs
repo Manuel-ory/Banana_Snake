@@ -9,7 +9,7 @@ namespace BananaSnake.Controller
 {
     class SnakeControler
     {
-        public void MoveSnake(Snake snake, Direction newDirection, bool isWallHit, GameArea gameArea)
+        public void MoveSnake(Snake snake, Direction newDirection, bool isWallHit, bool isFruitEaten, GameArea gameArea)
         {
             snake.AddHeadToBody();
             snake.HeadDirection = newDirection;
@@ -54,6 +54,9 @@ namespace BananaSnake.Controller
                         break;
                 }
             }
+
+            if (!isFruitEaten)
+                snake.DeleteBodyEnd();
         }
         
 

@@ -12,10 +12,8 @@ namespace BananaSnake.View
 
         public static void ClearTail(Position tailPos)
         {
-            //Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.SetCursorPosition(tailPos.x + 1, tailPos.y + 1);
             Console.Write(' ');
-            //Console.ResetColor();
         }
 
         /*public static void ClearTail(Snake snake)
@@ -57,7 +55,7 @@ namespace BananaSnake.View
 
             //Remplace la dernière tête
             Console.SetCursorPosition(snake.BodyPosition.First().x + 1, snake.BodyPosition.First().y + 1);
-            Console.Write('■');
+            Console.Write('█');
             Console.ResetColor();
 
         }
