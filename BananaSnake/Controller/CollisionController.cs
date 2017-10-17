@@ -13,7 +13,7 @@ namespace BananaSnake.Controller
         /// Return true if snake hit himself
         /// </summary>
         /// <returns></returns>
-        public bool IsHitSnake(Snake snake)
+        public bool IsHitSnake(Snake snake, Direction direction)
         {
             if (snake.BodyPosition.Contains(snake.HeadPosition))
             {
@@ -29,10 +29,30 @@ namespace BananaSnake.Controller
         /// <returns></returns>
         public bool IsHitWall(Snake snake, GameArea gameArea, Direction direction)
         {
-            if (snake.HeadPosition.x == 0 || snake.HeadPosition.x == gameArea.Width -1 || snake.HeadPosition.y == 0 || snake.HeadPosition.y == gameArea.Height - 1)
+            switch (direction)
             {
-                return true;
+                case Direction.left:
+                    if (snake.HeadPosition.x - 1 == 0)
+                        return true;
+                    break;
+
+                case Direction.down:
+                    if (snake.HeadPosition.y + 1 == gameArea.Height)
+                        return true;
+                    break;
+
+                case Direction.up:
+                    if (snake.HeadPosition.y - 1 == 0)
+                        return true;
+                    break;
+
+                case Direction.right:
+                    if (snake.HeadPosition.x + 1 == gameArea.Width)
+                        return true;
+                    break;
+
             }
+
             return false;
         }
 
@@ -40,13 +60,44 @@ namespace BananaSnake.Controller
         /// Return true if collision with fruit 
         /// </summary>
         /// <returns></returns>
-        public bool IsHitFruit(Snake snake, Fruit fruit)
+        public bool IsHitFruit(Snake snake, Fruit fruit, Direction direction)
         {
-            if (fruit.existingTicksLeft > 0 && snake.HeadPosition == fruit.FruitPosition)
+            if (fruit.existingTicksLeft > 0)
             {
-                fruit.existingTicksLeft = 0;
-                return true;
+                switch (direction)
+                {
+                    case Direction.left:
+                        if(snake.HeadPosition.x -1 == fruit.FruitPosition.x && snake.HeadPosition.y == fruit.FruitPosition.y)
+                        {
+                            return true;
+                        }
+                        break;
+
+                    case Direction.down:
+                        if (snake.HeadPosition.x == fruit.FruitPosition.x && snake.HeadPosition.y +1 == fruit.FruitPosition.y)
+                        {
+                            return true;
+                        }
+                        break;
+
+                    case Direction.up:
+                        if (snake.HeadPosition.x  == fruit.FruitPosition.x && snake.HeadPosition.y -1 == fruit.FruitPosition.y)
+                        {
+                            return true;
+                        }
+                        break;
+
+                    case Direction.right:
+                        if (snake.HeadPosition.x +1 == fruit.FruitPosition.x && snake.HeadPosition.y == fruit.FruitPosition.y)
+                        {
+                            return true;
+                        }
+                        break;
+
+                }
+
             }
+
             return false;
         }
 
