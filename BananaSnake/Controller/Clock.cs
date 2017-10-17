@@ -2,47 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BananaSnake.Controller
 {
     class Clock
     {
-        private const int tickDuration = 1000; // Duration of a tick in milliseconds
+        private int tickDuration;
 
-        private static System.DateTime nextTick = new System.DateTime();
+        private System.DateTime nextTick = new System.DateTime();
 
-        private static bool activeClock = false; // false if pause or game not lauched
-        public static bool ActiveClock
+        /// <summary>
+        /// Create a clock to make regular ticks
+        /// </summary>
+        /// <param name="duration">The duration of each tick in milliseconds</param>
+        public Clock(int duration = 250)
         {
-            get => activeClock;
-            set
-            {
-                activeClock = value;
-                if(value == true)
-                {
-                    nextTick = DateTime.Now + new TimeSpan(0, 0, 0, 0, tickDuration);
-                    StartClock();
-                }
-            }
+            tickDuration = duration;
         }
 
-        static void StartClock()
+        void WaitNextTick()
         {
-
-            ControlKey keyController = new ControlKey();
-            while (activeClock)
-            {
-
-                //keyController.GetSnakeTomove
-                if(DateTime.Now >= nextTick)
-                {
-                    nextTick += new TimeSpan(0, 0, 0, 0, tickDuration);
-                    // call function(s)
-                }
-            }
+            nextTick += new TimeSpan(0, 0, 0, 0, tickDuration);
+            Thread.Sleep(nextTick - new System.DateTime());
         }
-
 
     }
 }
