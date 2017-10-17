@@ -9,10 +9,14 @@ using BananaSnake.View;
 
 namespace BananaSnake.Controller
 {
-    class MainControler
+    /// <summary>
+    /// Gère le jeu dans son ensemble fonctionnel, instanciant les modèles, appellant les autres controlleurs et rafraichissant les vues.
+    /// </summary>
+    static class MainControler
     {
-
-
+        /// <summary>
+        /// exécute le contrôleur principal
+        /// </summary>
         public static void Execute()
         {
             //Setup
@@ -29,9 +33,9 @@ namespace BananaSnake.Controller
 
 
             Console.Title = "BananaSnake game";
+            TetrisMusic.StartMusic();
             GameAreaView.GameAera = gameAreaModel;
             GameAreaView.Draw();
-
 
             //Ready
             Console.ReadKey(true);
