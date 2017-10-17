@@ -13,8 +13,6 @@ namespace BananaSnake.Controller
         {
             //Random position 
             Random randX = new Random();
-            Random randY = new Random();
-
 
             int X = randX.Next(1, area.Width);
             int Y = randX.Next(1, area.Height);

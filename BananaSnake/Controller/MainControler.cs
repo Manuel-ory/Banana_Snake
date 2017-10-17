@@ -34,6 +34,7 @@ namespace BananaSnake.Controller
 
             while (Game.isGameOn)
             {
+                //Récupère nouvelle direction serpent
                 newDirection = KeyController.GetLastKey(snakeModel);
 
                 if (!Game.isGamePaused)
