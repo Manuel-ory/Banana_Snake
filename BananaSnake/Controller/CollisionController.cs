@@ -15,7 +15,7 @@ namespace BananaSnake.Controller
         /// <returns></returns>
         public bool IsHitSnake(Snake snake)
         {
-            if(snake.BodyPosition.Contains(snake.HeadPosition))
+            if (snake.BodyPosition.Contains(snake.HeadPosition))
             {
                 return true;
             }
@@ -28,7 +28,7 @@ namespace BananaSnake.Controller
         /// <returns></returns>
         public bool IsHitWall(Snake snake, GameArea gameArea)
         {
-            if (snake.HeadPosition.x == 0 || snake.HeadPosition.x == gameArea.Width -1 || snake.HeadPosition.y == 0 || snake.HeadPosition.y == gameArea.Height -1)
+            if (snake.HeadPosition.x == 0 || snake.HeadPosition.x == gameArea.Width - 1 || snake.HeadPosition.y == 0 || snake.HeadPosition.y == gameArea.Height - 1)
             {
                 return true;
             }
@@ -41,13 +41,13 @@ namespace BananaSnake.Controller
         /// <returns></returns>
         public bool IsHitFruit(Snake snake, Fruit fruit)
         {
-            if(fruit.existingTicksLeft > 0 && snake.HeadPosition == fruit.FruitPosition)
+            if (fruit.existingTicksLeft > 0 && snake.HeadPosition == fruit.FruitPosition)
             {
                 fruit.existingTicksLeft = 0;
                 return true;
             }
             return false;
         }
-        
+
     }
 }
