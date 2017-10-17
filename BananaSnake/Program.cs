@@ -14,9 +14,11 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
-            MainControler.Execute();
+	
+	    MainControler.Execute();
 
             /*Random randomx = new Random();
+
             Random randomy = new Random();
 
             Console.Title = "BananaSnake game";
@@ -46,6 +48,7 @@ namespace BananaSnake
             ScoreView.Draw(scoreModel);
 
             Console.ReadKey();*/
+
 
         }
     }
