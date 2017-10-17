@@ -57,6 +57,7 @@
     <Compile Include="Model\Snake.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\EattingFood.cs" />
     <Compile Include="View\ScoreView.cs" />
     <Compile Include="View\FruitView.cs" />
     <Compile Include="View\SnakeView.cs" />
