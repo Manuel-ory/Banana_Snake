@@ -9,20 +9,25 @@ namespace BananaSnake.View
 {
     class SnakeView
     {
-
+        /// <summary>
+        /// Efface le bout de queue du serpent
+        /// </summary>
+        /// <param name="tailPos">Position du bout de queue</param>
         public static void ClearTail(Position tailPos)
         {
             Console.SetCursorPosition(tailPos.x + 1, tailPos.y + 1);
             Console.Write(' ');
         }
 
-        /*public static void ClearTail(Snake snake)
+        /// <summary>
+        /// Efface le bout de queue du serpent
+        /// </summary>
+        /// <param name="snake">Serpent</param>
+        public static void ClearTail(Snake snake)
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            //Console.SetCursorPosition(tailPos.x + 1, tailPos.y + 1);
+            Console.SetCursorPosition(snake.TailPosition.x + 1, snake.TailPosition.y + 1);
             Console.Write(' ');
-            Console.ResetColor();
-        }*/
+        }
 
         /// <summary>
         /// Redessine la tête du serpent

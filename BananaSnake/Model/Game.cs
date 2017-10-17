@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model
 {
+    /// <summary>
+    /// Contient les valeurs des paramètres globaux du jeu
+    /// </summary>
     static class Game
     {
         public static bool isGameOn=true; //jeu en cours

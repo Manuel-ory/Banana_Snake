@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Controller
 {
+    /// <summary>
+    /// Gère les entrées clavier, retourne la prochaine direction du serpent et peut mettre le jeu en pause
+    /// </summary>
     class ControlKey
     {        
-        //ConsoleKey command = Console.ReadKey(true).Key;
-
-
+        /// <summary>
+        /// Retourne la direction du serpent pour ce tick, et peut mettre la pause sur ce jeu (non bloquant)
+        /// </summary>
+        /// <param name="snake">Le modèle du serpent pour vérifier qu'il ne fasse pas demi-tour</param>
+        /// <returns></returns>
         public Direction GetLastKey(Snake snake)
         {
             ConsoleKey readKey;
@@ -54,9 +59,9 @@ namespace BananaSnake.Controller
             return newDirection;
         }
 
+/////////////////////////////Déplacer ce code
+
         FruitView fruitView = new FruitView();
-
-
 
         public void eatFruit(Snake snake , Fruit fruit) {
             if (snake.HeadPosition == fruit.FruitPosition)

@@ -7,8 +7,19 @@ using BananaSnake.Model;
 
 namespace BananaSnake.Controller
 {
+    /// <summary>
+    /// S'occupe des actions sur le serpent
+    /// </summary>
     class SnakeControler
     {
+        /// <summary>
+        /// Bouge le serpent d'1 case
+        /// </summary>
+        /// <param name="snake">Le serpent à bouger</param>
+        /// <param name="newDirection">la direction du serpent</param>
+        /// <param name="isWallHit">Le serpent a touché le mur ?</param>
+        /// <param name="isFruitEaten">Le serpent a mangé un fruit ?</param>
+        /// <param name="gameArea">l'aire de jeu.</param>
         public void MoveSnake(Snake snake, Direction newDirection, bool isWallHit, bool isFruitEaten, GameArea gameArea)
         {
             snake.AddHeadToBody();
