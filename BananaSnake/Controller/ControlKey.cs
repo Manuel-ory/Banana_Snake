@@ -11,82 +11,57 @@ namespace BananaSnake.Controller
 {
     class ControlKey
     {        
-        ConsoleKey command = Console.ReadKey(true).Key;
-        FruitView fruitView = new FruitView();
+        //ConsoleKey command = Console.ReadKey(true).Key;
 
 
-        public void GetSnakeTomove(Snake snake, Game game)
+        public Direction GetLastKey(Snake snake)
         {
-            Random randomx = new Random();
-            Random randomy = new Random();
+            ConsoleKey readKey;
+            Direction newDirection = snake.HeadDirection;
 
-            do
+            while (Console.KeyAvailable)
             {
+                readKey = Console.ReadKey(true).Key;
 
-                snake.AddHeadToBody();
-                
-                if (Game.fruitEat == false)
+                switch (readKey)
                 {
-                    snake.DeleteBodyEnd();
-                   
-                }else
-                {
-                    Fruit fruit = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
-
-                    fruitView.DisplayFruit(fruit);
-                    eatFruit(game, snake, fruit);
-
-                }
-
-                switch (command)
-                {
-                    case ConsoleKey.Q:                  
-                        snake.HeadPosition.x--;
-                        snake.HeadDirection = Direction.left;
+                    case ConsoleKey.Q:
+                        if (snake.HeadDirection != Direction.right)
+                            newDirection = Direction.left;
                         break;
 
                     case ConsoleKey.S:
-                        snake.HeadPosition.y++;
-                        snake.HeadDirection = Direction.down;
+                        if (snake.HeadDirection != Direction.up)
+                            newDirection = Direction.down;
                         break;
 
                     case ConsoleKey.Z:
-                        snake.HeadPosition.y--;
-                        snake.HeadDirection = Direction.up;
+                        if (snake.HeadDirection != Direction.down)
+                            newDirection = Direction.up;
                         break;
 
                     case ConsoleKey.D:
-                        snake.HeadPosition.x++;
-                        snake.HeadDirection = Direction.right;
+                        if (snake.HeadDirection != Direction.left)
+                            newDirection = Direction.right;
                         break;
 
+                    case ConsoleKey.Spacebar:
+                        Game.SwitchPause();
+                        break;
                 }
+            }
 
-                View.SnakeView.ClearTail(snake.TailPosition);
-                View.SnakeView.DrawHead(snake);
-
-                snake.isWallHit = snake.DidSnakeHitWall();
-                if (snake.isWallHit)
-                {
-                    Game.isGameOn = false;
-                    Console.SetCursorPosition(18, 20);
-                    Console.WriteLine("Snake hit the wall");
-                }
-
-                if (Console.KeyAvailable)
-                {
-                    command = Console.ReadKey(true).Key;
-                }
-                System.Threading.Thread.Sleep(Game.gameSpeed);
-                    
-            } while (Game.isGameOn);
-
+            return newDirection;
         }
 
-        public void eatFruit(Game game , Snake snake , Fruit fruit) {
+        FruitView fruitView = new FruitView();
+
+
+
+        public void eatFruit(Snake snake , Fruit fruit) {
             if (snake.HeadPosition == fruit.FruitPosition)
             {
-                game.fruitEat = false;
+                Game.isFruitEat = false;
             }
             
         }

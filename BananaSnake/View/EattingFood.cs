@@ -10,12 +10,11 @@ namespace BananaSnake.View
 {
     static class EattingFood
     {
-        static String track = "Eatting.wav";
+        static int frequency = 800;
+        static int duration = 750;
         static public void StartSound()
         {
-            SoundPlayer sound = new SoundPlayer(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "..\\..\\Resources", track));
-            sound.Play();
+            Console.Beep(frequency, duration);
         }
-
     }
 }

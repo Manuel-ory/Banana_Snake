@@ -66,13 +66,13 @@ namespace BananaSnake.Model
             
         }
 
-        /*public bool DidSnakeHitWall()
+        public bool DidSnakeHitWall()
         {
             if (this.HeadPosition.x == 1 || this.HeadPosition.x == 50 || this.HeadPosition.y == 1 || this.HeadPosition.y == 20)
             {
                 return true;
             }
             return false;
-        }*/
+        }
     }
 }
