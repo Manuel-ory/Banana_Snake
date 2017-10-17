@@ -25,7 +25,7 @@ namespace BananaSnake.Controller
 
                 snake.AddHeadToBody();
                 
-                if (game.fruitEat == false)
+                if (Game.fruitEat == false)
                 {
                     snake.DeleteBodyEnd();
                    
@@ -43,28 +43,21 @@ namespace BananaSnake.Controller
                     case ConsoleKey.Q:                  
                         snake.HeadPosition.x--;
                         snake.HeadDirection = Direction.left;
-                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        //Console.Write("    ");
                         break;
 
                     case ConsoleKey.S:
                         snake.HeadPosition.y++;
                         snake.HeadDirection = Direction.down;
-                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        //Console.Write("    ");
                         break;
+
                     case ConsoleKey.Z:
                         snake.HeadPosition.y--;
                         snake.HeadDirection = Direction.up;
-                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        //Console.Write("    ");
                         break;
 
                     case ConsoleKey.D:
                         snake.HeadPosition.x++;
                         snake.HeadDirection = Direction.right;
-                        //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-                        //Console.Write("    ");
                         break;
 
                 }
@@ -72,12 +65,10 @@ namespace BananaSnake.Controller
                 View.SnakeView.ClearTail(snake.TailPosition);
                 View.SnakeView.DrawHead(snake);
 
-                //Console.SetCursorPosition(snake.HeadPosition.x, snake.HeadPosition.y);
-
                 snake.isWallHit = snake.DidSnakeHitWall();
                 if (snake.isWallHit)
                 {
-                    game.isGameOn = false;
+                    Game.isGameOn = false;
                     Console.SetCursorPosition(18, 20);
                     Console.WriteLine("Snake hit the wall");
                 }
@@ -86,9 +77,9 @@ namespace BananaSnake.Controller
                 {
                     command = Console.ReadKey(true).Key;
                 }
-                System.Threading.Thread.Sleep(game.gameSpeed);
+                System.Threading.Thread.Sleep(Game.gameSpeed);
                     
-            } while (game.isGameOn);
+            } while (Game.isGameOn);
 
         }
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace BananaSnake
 {
@@ -19,7 +20,6 @@ namespace BananaSnake
             Console.Title = "BananaSnake game";
 
             Snake snakeModel = new Snake();
-            Game gameModel = new Game();
             Score scoreModel = new Score();
             Fruit fruitModel = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
             
@@ -29,6 +29,7 @@ namespace BananaSnake
             GameAreaView.GameAera= new GameArea();
             GameAreaView.Draw();
 
+
             // Get the fruit to apear on the console 
             FruitView fruit = new FruitView();
             fruit.DisplayFruit(fruitModel);
@@ -36,12 +37,13 @@ namespace BananaSnake
             // Get snake to move 
             ControlKey keyController = new ControlKey();
             keyController.GetSnakeTomove(snakeModel, gameModel);
-            //keyController.GenerateFruit(gameModel, snakeModel,fruitModel);
+
             //Setup the score model & view
             scoreModel.ScoreValue = 20;
             ScoreView.Draw(scoreModel);
 
             Console.ReadKey();
+            keyObserver.Stop();
 
         }
     }
