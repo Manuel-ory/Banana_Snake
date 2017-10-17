@@ -14,8 +14,8 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
-            
             Console.Title = "BananaSnake game";
+            TetrisMusic.StartMusic();
 
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();

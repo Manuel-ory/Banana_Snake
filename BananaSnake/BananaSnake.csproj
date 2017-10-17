@@ -60,6 +60,7 @@
     <Compile Include="View\FruitView.cs" />
     <Compile Include="View\SnakeView.cs" />
     <Compile Include="View\GameAreaView.cs" />
+    <Compile Include="View\TetrisMusic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
