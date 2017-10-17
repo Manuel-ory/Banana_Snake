@@ -15,10 +15,8 @@ namespace BananaSnake.Controller
             Random randX = new Random();
             Random randY = new Random();
 
-
             int X = randX.Next(1, area.Width);
             int Y = randX.Next(1, area.Height);
-
 
             // Random Color 
             Random randColor = new Random();
@@ -37,7 +35,7 @@ namespace BananaSnake.Controller
                     randomColor = ConsoleColor.Green;
                     break;
                 default:
-                    throw new Exception("invalid default color value ");
+                    throw new Exception("invalid default fruit's color value ");
                     break; 
             }
 

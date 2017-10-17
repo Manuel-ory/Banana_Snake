@@ -14,6 +14,8 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
+
+            string line; 
             Random randomx = new Random();
             Random randomy = new Random();
 
@@ -45,6 +47,7 @@ namespace BananaSnake
 
             Console.ReadKey();
             keyObserver.Stop();
+
 
         }
     }
