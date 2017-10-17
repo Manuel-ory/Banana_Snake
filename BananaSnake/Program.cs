@@ -18,6 +18,7 @@ namespace BananaSnake
             Random randomy = new Random();
 
             Console.Title = "BananaSnake game";
+            TetrisMusic.StartMusic();
 
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
