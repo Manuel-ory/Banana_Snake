@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BananaSnake.Controller
@@ -11,12 +12,13 @@ namespace BananaSnake.Controller
     class ControlKey
     {        
         ConsoleKey command = Console.ReadKey(true).Key;
+        FruitView fruitView = new FruitView();
 
-        // Get the snake to apear on the console 
-        SerpentView serpentView = new SerpentView();
-        
+
         public void GetSnakeTomove(Snake snake, Game game)
         {
+            Random randomx = new Random();
+            Random randomy = new Random();
 
             do
             {
@@ -26,6 +28,14 @@ namespace BananaSnake.Controller
                 if (game.fruitEat == false)
                 {
                     snake.DeleteBodyEnd();
+                   
+                }else
+                {
+                    Fruit fruit = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
+
+                    fruitView.DisplayFruit(fruit);
+                    eatFruit(game, snake, fruit);
+
                 }
 
                 switch (command)
@@ -82,18 +92,34 @@ namespace BananaSnake.Controller
 
         }
 
-        public void GenerateFruit(Game game)
-        {
+        public void eatFruit(Game game , Snake snake , Fruit fruit) {
+            if (snake.HeadPosition == fruit.FruitPosition)
+            {
+                game.fruitEat = false;
+            }
+            
+        }
+
+
+        // deplacer dans controller fruit
+       /*public void GenerateFruit(Game game , Snake snake){
             Random randomx = new Random();
             Random randomy = new Random();
 
             do
             {
-                Fruit fruit = new Fruit(randomx.Next(3, 48), randomx.Next(3, 48));
-                fruitView.DisplayFruit(fruit);
+                if (game.fruitEat == false)
+                {
+                    Fruit fruit = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
 
-            } while (game.isGameOn == true);
-        }
+                    fruitView.DisplayFruit(fruit);
+                    eatFruit(game, snake, fruit);
+
+                }
+
+
+            } while (game.isGameOn );
+        }*/
 
 
 

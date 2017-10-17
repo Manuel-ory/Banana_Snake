@@ -13,13 +13,17 @@ namespace BananaSnake
     {
         static void Main(string[] args)
         {
-            
+            Random randomx = new Random();
+            Random randomy = new Random();
+
             Console.Title = "BananaSnake game";
 
             Snake snakeModel = new Snake();
             Game gameModel = new Game();
             Score scoreModel = new Score();
-            Fruit fruitModel = new Fruit(15,15);
+            Fruit fruitModel = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
+            
+
 
             //Setup the game aera view
             GameAreaView.GameAera= new GameArea();
@@ -32,7 +36,7 @@ namespace BananaSnake
             // Get snake to move 
             ControlKey keyController = new ControlKey();
             keyController.GetSnakeTomove(snakeModel, gameModel);
-            keyController.GenerateFruit(gameModel);
+            //keyController.GenerateFruit(gameModel, snakeModel,fruitModel);
             //Setup the score model & view
             scoreModel.ScoreValue = 20;
             ScoreView.Draw(scoreModel);

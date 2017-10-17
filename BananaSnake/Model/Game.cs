@@ -23,7 +23,7 @@ namespace BananaSnake.Model
             this.isSnakeHitHimself = false;
             this.isWallHit = false;
             this.fruitEat = false;
-            this.gameSpeed = 150;
+            this.gameSpeed = 200;
         }
 
     }
