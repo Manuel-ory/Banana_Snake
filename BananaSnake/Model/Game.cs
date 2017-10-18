@@ -11,16 +11,13 @@ namespace BananaSnake.Model
     /// </summary>
     static class Game
     {
-        public static bool isGameOn=true; //jeu en cours
-        public static bool isGamePaused=false;
-        public static bool isSnakeHitHimself=false; //condition partie perdue
-        public static bool isFruitAppearOnSnake = false; //if fruit appear on snake
-        public static int gameSpeed=150;
-        public static bool isFruitEat=false;
-
-        public static bool isWallHit=false; // Condition passage autre coté a voir si nécessaire ici ?
-
-        public static ConsoleKey lastControl=  new ConsoleKey();
+        public static bool isGameOn=true;                   //jeu en cours
+        public static bool isGamePaused=false;              //jeu en pause
+        public static bool isSnakeHitHimself=false;         //Serpent se mange lui-même
+        public static bool isFruitAppearOnSnake = false;    //le fruit est apparu dans le serpent
+        public static int speed=250;                    //Vitesse de jeu
+        public static bool isFruitEat=false;                //Le fruit a été mangé
+        public static bool isWallHit=false;                 // Condition passage autre coté. À voir si nécessaire ici ?
 
         public static void SwitchPause()
         {

@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.View
 {
-    class SnakeView
+    /// <summary>
+    /// Permet d'afficher le serpent
+    /// </summary>
+    static class SnakeView
     {
         /// <summary>
         /// Efface le bout de queue du serpent
@@ -65,6 +68,10 @@ namespace BananaSnake.View
 
         }
 
+        /// <summary>
+        /// Dessine l'intégralité du serpent
+        /// </summary>
+        /// <param name="snake">serpent à dessiner</param>
         public static void DrawAllSnake(Snake snake)
         {
             DrawHead(snake);

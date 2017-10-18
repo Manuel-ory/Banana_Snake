@@ -7,8 +7,18 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model.Factory
 {
+    /// <summary>
+    /// Usine à fruits :D
+    /// </summary>
     class FruitFactory
     {
+
+
+        /// <summary>
+        /// Crée un nouveau fruit
+        /// </summary>
+        /// <param name="area">La zone de jeu, pour que le fruit soit créé dedans</param>
+        /// <returns></returns>
         public Fruit CreateFruit(GameArea area, Snake snake)
         {
             //Random position 

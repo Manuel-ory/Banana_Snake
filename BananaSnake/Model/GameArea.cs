@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model
 {
+    /// <summary>
+    /// Représente les dimentions de la zone de jeu
+    /// </summary>
     class GameArea
     {
         private int areaHeight;

@@ -59,41 +59,5 @@ namespace BananaSnake.Controller
             return newDirection;
         }
 
-/////////////////////////////Déplacer ce code
-
-        FruitView fruitView = new FruitView();
-
-        public void eatFruit(Snake snake , Fruit fruit) {
-            if (snake.HeadPosition == fruit.FruitPosition)
-            {
-                Game.isFruitEat = false;
-            }
-            
-        }
-
-
-        // deplacer dans controller fruit
-       /*public void GenerateFruit(Game game , Snake snake){
-            Random randomx = new Random();
-            Random randomy = new Random();
-
-            do
-            {
-                if (game.fruitEat == false)
-                {
-                    Fruit fruit = new Fruit(randomx.Next(3, 45), randomy.Next(3, 18));
-
-                    fruitView.DisplayFruit(fruit);
-                    eatFruit(game, snake, fruit);
-
-                }
-
-
-            } while (game.isGameOn );
-        }*/
-
-
-
-
     }
 }

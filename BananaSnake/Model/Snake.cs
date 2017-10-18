@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model
 {
+    /// <summary>
+    /// Modèle du serpent
+    /// </summary>
     class Snake
     {
-        public ConsoleColor SnakeColor; 
+        //public ConsoleColor SnakeColor; 
         public bool isWallHit = false;
         /// <summary>
         /// Store the current position of the head of the snake.
