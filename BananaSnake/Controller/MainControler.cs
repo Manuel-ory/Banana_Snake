@@ -22,7 +22,7 @@ namespace BananaSnake.Controller
         {
             //*************************SETUP*************************
             //Model
-            GameArea gameAreaModel = new GameArea(40,20);
+            GameArea gameAreaModel = new GameArea(Game.widthArea,Game.heightArea);
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
             FruitFactory fruitFactory = new FruitFactory();

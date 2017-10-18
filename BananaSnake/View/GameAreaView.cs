@@ -33,13 +33,13 @@ namespace BananaSnake.View
 
                 if ((i == 0) || (i == width - 1))
                 {
-                    otherLines += "|";
-                    upDownLines += "+";
+                    otherLines += Game.verticalWall;
+                    upDownLines += Game.corner;
                 }
                 else
                 {
-                    otherLines += " ";
-                    upDownLines += "-";
+                    otherLines += Game.emptyCase;
+                    upDownLines += Game.horizontalWall;
                 }
             }
 

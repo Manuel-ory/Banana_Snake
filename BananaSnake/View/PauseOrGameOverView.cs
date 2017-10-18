@@ -24,7 +24,7 @@ namespace BananaSnake.View
                 Console.SetCursorPosition(1, i + 1);
                 for (int j = 0; j < gameArea.Width; j++)
                 {
-                    Console.Write(" ");
+                    Console.Write(Game.emptyCase);
                 }
             }
 

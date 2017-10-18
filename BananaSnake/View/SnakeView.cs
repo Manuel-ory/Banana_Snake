@@ -19,7 +19,7 @@ namespace BananaSnake.View
         public static void ClearTail(Position tailPos)
         {
             Console.SetCursorPosition(tailPos.x + 1, tailPos.y + 1);
-            Console.Write(' ');
+            Console.Write(Game.emptyCase);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace BananaSnake.View
         public static void ClearTail(Snake snake)
         {
             Console.SetCursorPosition(snake.TailPosition.x + 1, snake.TailPosition.y + 1);
-            Console.Write(' ');
+            Console.Write(Game.emptyCase);
         }
 
         /// <summary>
@@ -43,16 +43,16 @@ namespace BananaSnake.View
             switch (snake.HeadDirection)
             {
                 case Direction.up:
-                    head = '^';
+                    head = Game.headSnakeUp;
                     break;
                 case Direction.right:
-                    head = '>';
+                    head = Game.headSnakeRight;
                     break;
                 case Direction.down:
-                    head = 'v';
+                    head = Game.headSnakeDown;
                     break;
                 case Direction.left:
-                    head = '<';
+                    head = Game.headSnakeLeft;
                     break;
                 default:
                     break;
@@ -63,7 +63,7 @@ namespace BananaSnake.View
 
             //Remplace la dernière tête
             Console.SetCursorPosition(snake.BodyPosition.First().x + 1, snake.BodyPosition.First().y + 1);
-            Console.Write('█');
+            Console.Write(Game.bodySnake);
             Console.ResetColor();
 
         }
@@ -77,10 +77,10 @@ namespace BananaSnake.View
             DrawHead(snake);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-            foreach (Position p in snake.BodyPosition)
+            foreach (Position position in snake.BodyPosition)
             {
-                Console.SetCursorPosition(p.x + 1, p.y + 1);
-                Console.Write('█');
+                Console.SetCursorPosition(position.x + 1, position.y + 1);
+                Console.Write(Game.bodySnake);
             }
             Console.ResetColor();
 

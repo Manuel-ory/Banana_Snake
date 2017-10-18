@@ -20,7 +20,7 @@ namespace BananaSnake.View
         {
             Console.SetCursorPosition(fruit.FruitPosition.x+1, fruit.FruitPosition.y+1);
             Console.ForegroundColor = fruit.FruitColor;
-            Console.WriteLine(")");
+            Console.WriteLine(Game.shapeFruit);
             Console.ResetColor();
         }
 
@@ -31,7 +31,7 @@ namespace BananaSnake.View
         public static void ClearFruit(Fruit fruit)
         {
             Console.SetCursorPosition(fruit.FruitPosition.x + 1, fruit.FruitPosition.y + 1);
-            Console.Write(' ');
+            Console.Write(Game.emptyCase);
         }
 
 
