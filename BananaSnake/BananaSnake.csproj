@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CollisionController.cs" />
+    <Compile Include="Controller\FruitControler.cs" />
     <Compile Include="Model\Factory\FruitFactory.cs" />
     <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />
