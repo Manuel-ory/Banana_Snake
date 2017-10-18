@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BananaSnake.Controller
+namespace BananaSnake.Model.Factory
 {
     class FruitFactory
     {
