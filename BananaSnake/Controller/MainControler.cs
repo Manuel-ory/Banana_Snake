@@ -92,8 +92,6 @@ namespace BananaSnake.Controller
                 }
                 else
                 {
-                    GameOver go = new GameOver();
-                    go.Draw(1550);
                     //Dessine pause
                 }
 
