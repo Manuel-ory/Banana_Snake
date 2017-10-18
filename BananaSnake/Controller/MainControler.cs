@@ -33,7 +33,7 @@ namespace BananaSnake.Controller
             SnakeControler snakeControler = new SnakeControler();
             FruitControler fruitControler = new FruitControler();
             CollisionController collisionController = new CollisionController();
-            Clock clock = new Clock();
+            Clock clock = new Clock(Game.durationTick);
 
             Direction newDirection;
 
