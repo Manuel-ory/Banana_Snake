@@ -20,22 +20,27 @@ namespace BananaSnake.Controller
         public static void Execute()
         {
             //Setup
+            //Model
             GameArea gameAreaModel = new GameArea(50,20);
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
-            Direction newDirection;
+            FruitFactory fruitFactory = new FruitFactory();
+            Fruit fruit = fruitFactory.CreateFruit(gameAreaModel);
+
+            //Controller
             ControlKey KeyController = new ControlKey();
             SnakeControler snakeControler = new SnakeControler();
             CollisionController collisionController = new CollisionController();
 
-            FruitFactory fruitFactory = new FruitFactory();
-            Fruit fruit = fruitFactory.CreateFruit(gameAreaModel);
+            Direction newDirection;
 
 
             Console.Title = "BananaSnake game";
             TetrisMusic.StartMusic();
+
             GameAreaView.GameAera = gameAreaModel;
             GameAreaView.Draw();
+            SnakeView.DrawAllSnake(snakeModel);
 
             //Ready
             Console.ReadKey(true);
@@ -96,6 +101,8 @@ namespace BananaSnake.Controller
                 }
                 else
                 {
+                    GameOver go = new GameOver();
+                    go.Draw(1550);
                     //Dessine pause
                 }
 

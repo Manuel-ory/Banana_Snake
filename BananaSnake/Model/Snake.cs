@@ -15,6 +15,8 @@ namespace BananaSnake.Model
         /// </summary>
         public Position HeadPosition { get; set; }
 
+
+        public int sizeBodyInitial;
         /// <summary>
         /// Store the direction of the head of the snake.
         /// </summary>
@@ -51,18 +53,18 @@ namespace BananaSnake.Model
         /// </summary>
         public Snake()
         {
+            this.sizeBodyInitial = 3;
             //Add three parts of body
-            this.HeadPosition = new Position(25, 19);
-            
-            this.TailPosition = new Position(25, 19);
+            this.HeadPosition = new Position(5, 1);
+            this.TailPosition = new Position(2, 1);
+            this.HeadDirection = Direction.right;
             this.BodyPosition = new List<Position>();
-            this.AddHeadToBody();
-            this.HeadPosition.x++;
-            this.AddHeadToBody();
-            this.HeadPosition.x++;
-            this.AddHeadToBody();
-            //Add head of the snake
-            this.HeadPosition.x++;
+
+            for (int i = 0; i < sizeBodyInitial; i++)
+            {
+                this.AddHeadToBody();
+                this.HeadPosition.x++;
+            }
             
         }
     }

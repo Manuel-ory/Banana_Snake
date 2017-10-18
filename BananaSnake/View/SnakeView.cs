@@ -64,5 +64,20 @@ namespace BananaSnake.View
             Console.ResetColor();
 
         }
+
+        public static void DrawAllSnake(Snake snake)
+        {
+            DrawHead(snake);
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+            foreach (Position p in snake.BodyPosition)
+            {
+                Console.SetCursorPosition(p.x + 1, p.y + 1);
+                Console.Write('█');
+            }
+            Console.ResetColor();
+
+
+        }
     }
 }
