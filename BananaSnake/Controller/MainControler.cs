@@ -33,6 +33,8 @@ namespace BananaSnake.Controller
             Fruit fruit = fruitFactory.CreateFruit(gameAreaModel);
 
 
+
+
             Console.Title = "BananaSnake game";
             TetrisMusic.StartMusic();
             GameAreaView.GameAera = gameAreaModel;
@@ -88,7 +90,8 @@ namespace BananaSnake.Controller
                     if (Game.isSnakeHitHimself)
                     {
                         Game.isGameOn = false;
-                        break;
+                        GameOver.Draw(scoreModel.ScoreValue, gameAreaModel);
+                        Console.ReadKey();
                     }
 
                     //Dessiner jeu
@@ -112,7 +115,7 @@ namespace BananaSnake.Controller
 
             //Score
             //ScoreView.Draw(scoreModel);
-
+            
             //Fin du jeu
         }
 
