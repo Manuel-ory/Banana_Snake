@@ -26,6 +26,7 @@ namespace BananaSnake.Controller
             {
                 fruit = fruitFactory.CreateFruit(gameArea);
                 score.ScoreValue+=fruit.earnedPoints;
+                EattingFood.StartSound();
             }
             else
             {

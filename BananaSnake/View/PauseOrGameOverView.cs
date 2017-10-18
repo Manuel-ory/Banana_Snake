@@ -12,7 +12,16 @@ namespace BananaSnake.View
 
         public static void Draw(int score, GameArea gameArea)
         {
-            if(Game.isGameOn)
+            for (int i = 0; i < gameArea.Height; i++)
+            {
+                Console.SetCursorPosition(1, i + 1);
+                for (int j = 0; j < gameArea.Width; j++)
+                {
+                    Console.Write(" ");
+                }
+            }
+
+            if (Game.isGameOn)
             {
                 Console.SetCursorPosition(gameArea.Width/2 - 2, 1);
                 Console.Write("PAUSE");
@@ -25,17 +34,7 @@ namespace BananaSnake.View
                 Console.SetCursorPosition(1, gameArea.Height);
                 Console.Write("Developped by: the BananaSnake team");
             }
-            
 
-
-            for(int i = 0; i< gameArea.Height; i++)
-            {
-                Console.SetCursorPosition(1, i + 1);
-                for(int j = 0; j < gameArea.Width; j++)
-                {
-                    Console.Write(" ");
-                }
-            }
             Console.SetCursorPosition(gameArea.Width / 2 - 3, gameArea.Height / 2 - 1);
             Console.Write("Score:");
             Console.SetCursorPosition(gameArea.Width/ 2 - 2, gameArea.Height/ 2);
