@@ -7,9 +7,16 @@ using BananaSnake.Model;
 
 namespace BananaSnake.View
 {
+    /// <summary>
+    /// Permet de dessiner l'écran de pause/Game Over
+    /// </summary>
     static class PauseOrGameOverView
     {
-
+        /// <summary>
+        /// Affiche la pause/le Game Over
+        /// </summary>
+        /// <param name="score">Score à afficher</param>
+        /// <param name="gameArea">Dimentions de la zone de jeu</param>
         public static void Draw(int score, GameArea gameArea)
         {
             for (int i = 0; i < gameArea.Height; i++)

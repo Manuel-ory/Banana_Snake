@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.View
 {
+    /// <summary>
+    /// Permet de jouer un son lorsqu'on mange un fruit
+    /// </summary>
     static class EattingFood
     {
         static int frequency = 1000;

@@ -61,7 +61,12 @@ namespace BananaSnake.Controller
             return false;
         }
 
-
+        /// <summary>
+        /// Vérifie si le fruit apparait dans le corps du serpent
+        /// </summary>
+        /// <param name="snake">serpent</param>
+        /// <param name="fruit">fruit</param>
+        /// <returns>True si le fruit est apparu dans le serpent</returns>
         public bool IsFruitAppearOnSnake(Snake snake, Fruit fruit)
         {
             if(fruit.existingTicksLeft > 0)

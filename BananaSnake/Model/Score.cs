@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model
 {
+    //Contient la valeur du score
     class Score
     {
         private int score;

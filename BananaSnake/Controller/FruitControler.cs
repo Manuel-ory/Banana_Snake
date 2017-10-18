@@ -16,6 +16,7 @@ namespace BananaSnake.Controller
         /// </summary>
         /// <param name="fruit">fruit à Mettre à jour</param>
         /// <param name="isFruitEat">Indique si le fruit a été mangé</param>
+        /// <param name="isFruitAppearOnSnake">indique si le fruit apparait sur le serpent</param>
         /// <param name="fruitFactory">Objet servant à rectéer un nouveau fruit si nécessaire</param>
         /// <param name="gameArea">La zone de jeu</param>
         /// <param name="score">le score à mettre à jour</param>

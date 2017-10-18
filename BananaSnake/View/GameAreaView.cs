@@ -7,7 +7,10 @@ using BananaSnake.Model;
 
 namespace BananaSnake.View
 {
-    class GameAreaView
+    /// <summary>
+    /// Affiche la zone de jeu
+    /// </summary>
+    static class GameAreaView
     {
         private static GameArea gameAera;
 

@@ -63,7 +63,6 @@ namespace BananaSnake.Controller
                     //Controler fruit
                     fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat, Game.isFruitAppearOnSnake, fruitFactory, gameAreaModel, scoreModel);
 
-
                     //Controler serpent
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
@@ -74,21 +73,11 @@ namespace BananaSnake.Controller
                     if (Game.isSnakeHitHimself)
                     {
                         Game.isGameOn = false;
-                        //PauseOrGameOverView.Draw(scoreModel.ScoreValue, gameAreaModel);
-                        //Console.ReadKey();
                     }
 
-                    //Dessiner jeu
-                    /*
-                    SnakeView.ClearTail(snakeModel.TailPosition);
-                    SnakeView.DrawHead(snakeModel);
-                    ScoreView.Draw(scoreModel);
-
-                    FruitView.DisplayFruit(fruitModel);
-                    */
-
+                    
                 }
-
+                //Dessiner jeu
                 ViewStratege.DrawView(scoreModel, gameAreaModel, snakeModel, fruitModel);
                 if (!Game.isGameOn)
                 {
@@ -99,8 +88,6 @@ namespace BananaSnake.Controller
                 System.Threading.Thread.Sleep(250);
             }
 
-            //Score
-            //ScoreView.Draw(scoreModel);
             
             //Fin du jeu
         }
