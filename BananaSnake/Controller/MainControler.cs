@@ -21,24 +21,29 @@ namespace BananaSnake.Controller
         public static void Execute()
         {
             //Setup
+            //Model
             GameArea gameAreaModel = new GameArea(50,20);
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
-            Direction newDirection;
+            FruitFactory fruitFactory = new FruitFactory();
+            Fruit fruitModel = fruitFactory.CreateFruit(gameAreaModel);
+            
             ControlKey KeyController = new ControlKey();
             SnakeControler snakeControler = new SnakeControler();
+            FruitControler fruitControler = new FruitControler();
             CollisionController collisionController = new CollisionController();
 
-            FruitFactory fruitFactory = new FruitFactory();
-            Fruit fruit = fruitFactory.CreateFruit(gameAreaModel);
+            Direction newDirection;
 
 
 
 
             Console.Title = "BananaSnake game";
             TetrisMusic.StartMusic();
+
             GameAreaView.GameAera = gameAreaModel;
             GameAreaView.Draw();
+            SnakeView.DrawAllSnake(snakeModel);
 
             //Ready
             Console.ReadKey(true);
@@ -54,32 +59,13 @@ namespace BananaSnake.Controller
                     //Check collisions (mur, serpent, fruit)
 
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);//Mintenant inutile
-                    Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruit, newDirection, gameAreaModel);
-
+                    Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruitModel, newDirection, gameAreaModel);
                     Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel);
                     //Act selon collisions
 
                     //Controller AvancerSerpent
 
-                    if (Game.isFruitEat)
-                    {
-                        fruit = fruitFactory.CreateFruit(gameAreaModel);
-                        scoreModel.ScoreValue = scoreModel.ScoreValue + fruit.earnedPoints;
-                    }
-                    else
-                    {
-                        if(fruit.existingTicksLeft == 0)
-                        {
-                            FruitView.ClearFruit(fruit);
-                            fruit = fruitFactory.CreateFruit(gameAreaModel);
-                        }
-                        else
-                        {
-                            fruit.existingTicksLeft--;
-                        }
-                        
-                    }
-
+                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat,fruitFactory,gameAreaModel);
 
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
@@ -99,13 +85,15 @@ namespace BananaSnake.Controller
                     SnakeView.DrawHead(snakeModel);
                     ScoreView.Draw(scoreModel);
 
-                    FruitView.DisplayFruit(fruit);
+                    FruitView.DisplayFruit(fruitModel);
 
                    
 
                 }
                 else
                 {
+                    GameOver go = new GameOver();
+                    go.Draw(1550);
                     //Dessine pause
                 }
 
