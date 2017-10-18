@@ -53,13 +53,16 @@ namespace BananaSnake.Controller
 
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);//Mintenant inutile
                     Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruit, newDirection, gameAreaModel);
+
                     Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel);
                     //Act selon collisions
+
                     //Controller AvancerSerpent
 
                     if (Game.isFruitEat)
                     {
                         fruit = fruitFactory.CreateFruit(gameAreaModel);
+                        scoreModel.ScoreValue = scoreModel.ScoreValue + fruit.earnedPoints;
                     }
                     else
                     {
@@ -91,10 +94,11 @@ namespace BananaSnake.Controller
                     //Dessiner jeu
                     SnakeView.ClearTail(snakeModel.TailPosition);
                     SnakeView.DrawHead(snakeModel);
+                    ScoreView.Draw(scoreModel);
+
                     FruitView.DisplayFruit(fruit);
 
                    
-
 
                 }
                 else
@@ -107,6 +111,7 @@ namespace BananaSnake.Controller
             }
 
             //Score
+            //ScoreView.Draw(scoreModel);
 
             //Fin du jeu
         }
