@@ -13,11 +13,16 @@ namespace BananaSnake.Controller
         /// Return true if snake hit himself
         /// </summary>
         /// <returns></returns>
-        public bool IsHitSnake(Snake snake, Direction direction)
+        public bool IsHitSnake(Snake snake)
         {
-            if (snake.BodyPosition.Contains(snake.HeadPosition))
+            //Position test = new Position(snake.HeadPosition);
+            for (int i = 0; i < snake.BodyPosition.Count(); i++)
             {
-                return true;
+                if(snake.BodyPosition[i].x == snake.HeadPosition.x && snake.BodyPosition[i].y == snake.HeadPosition.y)
+                {
+                    return true;
+                }
+
             }
             return false;
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BananaSnake.Model;
+using BananaSnake.Model.Factory;
 using BananaSnake.View;
 
 
@@ -57,13 +58,16 @@ namespace BananaSnake.Controller
 
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);//Mintenant inutile
                     Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruit, newDirection, gameAreaModel);
-                    Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel, newDirection);
+
+                    Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel);
                     //Act selon collisions
+
                     //Controller AvancerSerpent
 
                     if (Game.isFruitEat)
                     {
                         fruit = fruitFactory.CreateFruit(gameAreaModel);
+                        scoreModel.ScoreValue = scoreModel.ScoreValue + fruit.earnedPoints;
                     }
                     else
                     {
@@ -85,18 +89,21 @@ namespace BananaSnake.Controller
                         Game.isFruitEat,
                         gameAreaModel);
 
-                
+
+                    if (Game.isSnakeHitHimself)
+                    {
+                        Game.isGameOn = false;
+                        break;
+                    }
+
                     //Dessiner jeu
                     SnakeView.ClearTail(snakeModel.TailPosition);
                     SnakeView.DrawHead(snakeModel);
+                    ScoreView.Draw(scoreModel);
+
                     FruitView.DisplayFruit(fruit);
 
-                    if(Game.isSnakeHitHimself)
-                    {
-                        Game.isGameOn = false;
-
-                    }
-
+                   
 
                 }
                 else
@@ -111,6 +118,7 @@ namespace BananaSnake.Controller
             }
 
             //Score
+            //ScoreView.Draw(scoreModel);
 
             //Fin du jeu
         }
