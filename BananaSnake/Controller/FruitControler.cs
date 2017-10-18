@@ -11,11 +11,13 @@ namespace BananaSnake.Controller
 {
     class FruitControler
     {
-        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, FruitFactory fruitFactory,  GameArea gameArea)
+        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, FruitFactory fruitFactory,  GameArea gameArea, Score score)
         {
             if (Game.isFruitEat)
             {
                 fruit = fruitFactory.CreateFruit(gameArea);
+                score.ScoreValue+=fruit.earnedPoints;
+
             }
             else
             {

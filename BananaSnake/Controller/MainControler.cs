@@ -65,7 +65,7 @@ namespace BananaSnake.Controller
 
                     //Controller AvancerSerpent
 
-                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat,fruitFactory,gameAreaModel);
+                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat,fruitFactory,gameAreaModel, scoreModel);
 
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
