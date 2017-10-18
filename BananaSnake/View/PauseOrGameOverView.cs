@@ -42,10 +42,38 @@ namespace BananaSnake.View
                 Console.Write("Developped by: the BananaSnake team");
             }
 
-            Console.SetCursorPosition(gameArea.Width / 2 - 3, gameArea.Height / 2 - 1);
-            Console.Write("Score:");
-            Console.SetCursorPosition(gameArea.Width/ 2 - 2, gameArea.Height/ 2);
+            if(Game.heightArea == 20 && Game.widthArea == 40)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.SetCursorPosition(2, 4);
+                Console.WriteLine("                             (_)(_)   ");
+                Console.SetCursorPosition(2, 5);
+                Console.WriteLine("                            /     \\  ");
+                Console.SetCursorPosition(2, 6);
+                Console.WriteLine("                           /       |  ");
+                Console.SetCursorPosition(2, 7);
+                Console.WriteLine("                          /   \\  * | ");
+                Console.SetCursorPosition(2, 8);
+                Console.WriteLine("            ________     /    /\\__/  ");
+                Console.SetCursorPosition(2, 9);
+                Console.WriteLine("    _      /        \\   /    /       ");
+                Console.SetCursorPosition(2, 10);
+                Console.WriteLine("   / \\    /  ____    \\_/    /       ");
+                Console.SetCursorPosition(2, 11);
+                Console.WriteLine("  //\\ \\  /  /    \\         /       ");
+                Console.SetCursorPosition(2, 12);
+                Console.WriteLine("  V  \\ \\/  /      \\       /        ");
+                Console.SetCursorPosition(2, 13);
+                Console.WriteLine("      \\___/        \\_____/          ");
+            }
+            
+
+            Console.SetCursorPosition(gameArea.Width / 2 - 4, gameArea.Height / 2 - 4);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Score :");
+            Console.SetCursorPosition(gameArea.Width / 2 - 2, gameArea.Height / 2 - 3);
             Console.Write(score);
+
         }
 
     }
