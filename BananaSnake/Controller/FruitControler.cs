@@ -11,7 +11,7 @@ namespace BananaSnake.Controller
 {
     class FruitControler
     {
-        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, FruitFactory fruitFactory,  GameArea gameArea, Score score)
+        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, bool isFruitAppearOnSnake, FruitFactory fruitFactory,  GameArea gameArea, Score score)
         {
             if (Game.isFruitEat)
             {
@@ -21,7 +21,7 @@ namespace BananaSnake.Controller
             }
             else
             {
-                if (fruit.existingTicksLeft == 0)
+                if (fruit.existingTicksLeft == 0 || isFruitAppearOnSnake)
                 {
                     FruitView.ClearFruit(fruit);
                     fruit = fruitFactory.CreateFruit(gameArea);
