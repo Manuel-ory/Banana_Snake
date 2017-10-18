@@ -22,11 +22,11 @@ namespace BananaSnake.Controller
         {
             //Setup
             //Model
-            GameArea gameAreaModel = new GameArea(50,20);
+            GameArea gameAreaModel = new GameArea(40,20);
             Snake snakeModel = new Snake();
             Score scoreModel = new Score();
             FruitFactory fruitFactory = new FruitFactory();
-            Fruit fruitModel = fruitFactory.CreateFruit(gameAreaModel);
+            Fruit fruitModel = fruitFactory.CreateFruit(gameAreaModel, snakeModel);
             
             ControlKey KeyController = new ControlKey();
             SnakeControler snakeControler = new SnakeControler();
@@ -61,11 +61,11 @@ namespace BananaSnake.Controller
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);//Mintenant inutile
                     Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruitModel, newDirection, gameAreaModel);
                     Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel);
-                    Game.isFruitAppearOnSnake = collisionController.IsFruitAppearOnSnake(snakeModel, fruitModel);
+                    //Game.isFruitAppearOnSnake = collisionController.IsFruitAppearOnSnake(snakeModel, fruitModel);
                     //Act selon collisions
 
                     //Controller AvancerSerpent
-                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat, Game.isFruitAppearOnSnake, fruitFactory, gameAreaModel, scoreModel);
+                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat, fruitFactory, gameAreaModel, scoreModel, snakeModel);
 
 
                     snakeControler.MoveSnake(snakeModel, 

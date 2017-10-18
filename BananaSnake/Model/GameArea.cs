@@ -14,7 +14,7 @@ namespace BananaSnake.Model
         public int Height { get => areaHeight; }
         public int Width { get => areaWidth; }
 
-        public GameArea(int width=50, int height=20)
+        public GameArea(int width, int height)
         {
             if ((width > 0) && (height > 0))
             {

@@ -9,7 +9,7 @@ namespace BananaSnake.Model.Factory
 {
     class FruitFactory
     {
-        public Fruit CreateFruit(GameArea area)
+        public Fruit CreateFruit(GameArea area, Snake snake)
         {
             //Random position 
             Random randX = new Random();
@@ -17,6 +17,36 @@ namespace BananaSnake.Model.Factory
 
             int X = randX.Next(0, area.Width);
             int Y = randX.Next(0, area.Height);
+
+            bool onSnake = false;
+
+            do
+            {
+                onSnake = false;
+
+
+
+                for (int i = 0; i < snake.BodyPosition.Count(); i++)
+                {
+                    if (snake.BodyPosition[i].x == X && snake.BodyPosition[i].y == Y )
+                    {
+                        onSnake = true;
+                        X = randX.Next(0, area.Width);
+                        Y = randX.Next(0, area.Height);
+                    }
+                }
+                
+                if(snake.HeadPosition.x == X && snake.HeadPosition.y == Y)
+                {
+                    onSnake = true;
+                    X = randX.Next(0, area.Width);
+                    Y = randX.Next(0, area.Height);
+                }
+
+            }
+            while (onSnake);
+
+
 
             // Random Color 
             Random randColor = new Random();

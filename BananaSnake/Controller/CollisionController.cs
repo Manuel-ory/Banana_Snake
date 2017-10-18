@@ -62,7 +62,7 @@ namespace BananaSnake.Controller
         }
 
 
-        public bool IsFruitAppearOnSnake(Snake snake, Fruit fruit)
+       /* public bool IsFruitAppearOnSnake(Snake snake, Fruit fruit)
         {
             if(fruit.existingTicksLeft > 0)
             {
@@ -77,7 +77,7 @@ namespace BananaSnake.Controller
             }
 
             return false;
-        }
+        }*/
 
         /// <summary>
         /// Return true if collision with fruit 

@@ -11,20 +11,20 @@ namespace BananaSnake.Controller
 {
     class FruitControler
     {
-        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, bool isFruitAppearOnSnake, FruitFactory fruitFactory,  GameArea gameArea, Score score)
+        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, FruitFactory fruitFactory,  GameArea gameArea, Score score, Snake snake)
         {
             if (Game.isFruitEat)
             {
-                fruit = fruitFactory.CreateFruit(gameArea);
+                fruit = fruitFactory.CreateFruit(gameArea, snake);
                 score.ScoreValue+=fruit.earnedPoints;
 
             }
             else
             {
-                if (fruit.existingTicksLeft == 0 || isFruitAppearOnSnake)
+                if (fruit.existingTicksLeft == 0)
                 {
                     FruitView.ClearFruit(fruit);
-                    fruit = fruitFactory.CreateFruit(gameArea);
+                    fruit = fruitFactory.CreateFruit(gameArea, snake);
                 }
                 else
                 {
