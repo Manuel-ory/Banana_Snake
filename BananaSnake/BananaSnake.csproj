@@ -44,9 +44,9 @@
   <ItemGroup>
     <Compile Include="Controller\CollisionController.cs" />
     <Compile Include="Model\Factory\FruitFactory.cs" />
-    <Compile Include="Controller\MainControler.cs" />
     <Compile Include="Controller\Clock.cs" />
     <Compile Include="Controller\ControlKey.cs" />
+    <Compile Include="Controller\MainControler.cs" />
     <Compile Include="Controller\SnakeControler.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\GameArea.cs" />

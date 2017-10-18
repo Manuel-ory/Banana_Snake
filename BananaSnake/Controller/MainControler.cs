@@ -49,8 +49,9 @@ namespace BananaSnake.Controller
                 {
                     //Controller collisions
                     //Check collisions (mur, serpent, fruit)
-                    Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);
-                    Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruit, newDirection);
+
+                    Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);//Mintenant inutile
+                    Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruit, newDirection, gameAreaModel);
                     Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel, newDirection);
                     //Act selon collisions
                     //Controller AvancerSerpent
@@ -76,9 +77,10 @@ namespace BananaSnake.Controller
 
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
-                        Game.isWallHit,
                         Game.isFruitEat,
                         gameAreaModel);
+
+                
                     //Dessiner jeu
                     SnakeView.ClearTail(snakeModel.TailPosition);
                     SnakeView.DrawHead(snakeModel);
