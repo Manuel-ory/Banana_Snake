@@ -14,7 +14,7 @@ namespace BananaSnake.View
         static public void StartMusic()
         {
             SoundPlayer music = new SoundPlayer(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "..\\..\\Resources", track));
-            music.Play();
+            music.PlayLooping();
         }
     }
 }
