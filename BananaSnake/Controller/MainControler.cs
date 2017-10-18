@@ -44,15 +44,36 @@ namespace BananaSnake.Controller
             {
                 //Récupère nouvelle direction serpent
                 newDirection = KeyController.GetLastKey(snakeModel);
-                FruitView.DisplayFruit(fruit);
+                
                 if (!Game.isGamePaused)
                 {
                     //Controller collisions
                     //Check collisions (mur, serpent, fruit)
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);
                     Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruit, newDirection);
+                    Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel, newDirection);
                     //Act selon collisions
                     //Controller AvancerSerpent
+
+                    if (Game.isFruitEat)
+                    {
+                        fruit = fruitFactory.CreateFruit(gameAreaModel);
+                    }
+                    else
+                    {
+                        if(fruit.existingTicksLeft == 0)
+                        {
+                            FruitView.ClearFruit(fruit);
+                            fruit = fruitFactory.CreateFruit(gameAreaModel);
+                        }
+                        else
+                        {
+                            fruit.existingTicksLeft--;
+                        }
+                        
+                    }
+
+
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
                         Game.isWallHit,
@@ -61,7 +82,14 @@ namespace BananaSnake.Controller
                     //Dessiner jeu
                     SnakeView.ClearTail(snakeModel.TailPosition);
                     SnakeView.DrawHead(snakeModel);
-                    
+                    FruitView.DisplayFruit(fruit);
+
+                    if(Game.isSnakeHitHimself)
+                    {
+                        Game.isGameOn = false;
+
+                    }
+
 
                 }
                 else
