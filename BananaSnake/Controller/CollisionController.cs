@@ -60,35 +60,39 @@ namespace BananaSnake.Controller
         /// Return true if collision with fruit 
         /// </summary>
         /// <returns></returns>
-        public bool IsHitFruit(Snake snake, Fruit fruit, Direction direction)
+        public bool IsHitFruit(Snake snake, Fruit fruit, Direction direction, GameArea gameArea)
         {
             if (fruit.existingTicksLeft > 0)
             {
                 switch (direction)
                 {
                     case Direction.left:
-                        if(snake.HeadPosition.x -1 == fruit.FruitPosition.x && snake.HeadPosition.y == fruit.FruitPosition.y)
+                        if(((snake.HeadPosition.x + gameArea.Width -1) % gameArea.Width) == fruit.FruitPosition.x 
+                            && snake.HeadPosition.y == fruit.FruitPosition.y)
                         {
                             return true;
                         }
                         break;
 
                     case Direction.down:
-                        if (snake.HeadPosition.x == fruit.FruitPosition.x && snake.HeadPosition.y +1 == fruit.FruitPosition.y)
+                        if (snake.HeadPosition.x == fruit.FruitPosition.x 
+                            && ((snake.HeadPosition.y +1) % gameArea.Height) == fruit.FruitPosition.y)
                         {
                             return true;
                         }
                         break;
 
                     case Direction.up:
-                        if (snake.HeadPosition.x  == fruit.FruitPosition.x && snake.HeadPosition.y -1 == fruit.FruitPosition.y)
+                        if (snake.HeadPosition.x  == fruit.FruitPosition.x 
+                            && ((snake.HeadPosition.y + gameArea.Height - 1) % gameArea.Height) == fruit.FruitPosition.y)
                         {
                             return true;
                         }
                         break;
 
                     case Direction.right:
-                        if (snake.HeadPosition.x +1 == fruit.FruitPosition.x && snake.HeadPosition.y == fruit.FruitPosition.y)
+                        if (((snake.HeadPosition.x +1)% gameArea.Width) == fruit.FruitPosition.x 
+                            && snake.HeadPosition.y == fruit.FruitPosition.y)
                         {
                             return true;
                         }

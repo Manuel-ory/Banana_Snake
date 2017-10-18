@@ -10,7 +10,7 @@ namespace BananaSnake.Model
     {
         public ConsoleColor FruitColor;
         public Position FruitPosition { get; set; }
-        public int existingTicksLeft = 10;
+        public int existingTicksLeft = 40;
 
 
         public Fruit(int xposition, int yposition , ConsoleColor color)
@@ -19,6 +19,8 @@ namespace BananaSnake.Model
             this.FruitColor = color; 
 
         }
+
+
 
     }
 }

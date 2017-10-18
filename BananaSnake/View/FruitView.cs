@@ -12,10 +12,18 @@ namespace BananaSnake.View
 
         public static void DisplayFruit(Fruit fruit)
         {
-            Console.SetCursorPosition(fruit.FruitPosition.x, fruit.FruitPosition.y);
+            Console.SetCursorPosition(fruit.FruitPosition.x+1, fruit.FruitPosition.y+1);
             Console.ForegroundColor = fruit.FruitColor;
             Console.WriteLine(")");
             Console.ResetColor();
         }
+
+        public static void ClearFruit(Fruit fruit)
+        {
+            Console.SetCursorPosition(fruit.FruitPosition.x + 1, fruit.FruitPosition.y + 1);
+            Console.Write(' ');
+        }
+
+
     }
 }
