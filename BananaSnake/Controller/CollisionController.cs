@@ -61,6 +61,24 @@ namespace BananaSnake.Controller
             return false;
         }
 
+
+        public bool IsFruitAppearOnSnake(Snake snake, Fruit fruit)
+        {
+            if(fruit.existingTicksLeft > 0)
+            {
+                for (int i = 0; i < snake.BodyPosition.Count(); i++)
+                {
+                     if (snake.BodyPosition[i].x == fruit.FruitPosition.x && snake.BodyPosition[i].y == fruit.FruitPosition.y)
+                     {
+                         return true;
+                     }
+
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Return true if collision with fruit 
         /// </summary>

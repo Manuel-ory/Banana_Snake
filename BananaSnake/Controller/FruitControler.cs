@@ -20,7 +20,7 @@ namespace BananaSnake.Controller
         /// <param name="gameArea">La zone de jeu</param>
         /// <param name="score">le score à mettre à jour</param>
         /// <returns>Le fruit mis à jour</returns>
-        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, FruitFactory fruitFactory,  GameArea gameArea, Score score)
+        public Fruit UpdateFruit(Fruit fruit, bool isFruitEat, bool isFruitAppearOnSnake, FruitFactory fruitFactory,  GameArea gameArea, Score score)
         {
             if (Game.isFruitEat)
             {
@@ -29,7 +29,7 @@ namespace BananaSnake.Controller
             }
             else
             {
-                if (fruit.existingTicksLeft == 0)
+                if (fruit.existingTicksLeft == 0 || isFruitAppearOnSnake)
                 {
                     FruitView.ClearFruit(fruit);
                     fruit = fruitFactory.CreateFruit(gameArea);

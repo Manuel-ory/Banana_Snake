@@ -58,9 +58,11 @@ namespace BananaSnake.Controller
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);//Mintenant inutile
                     Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruitModel, newDirection, gameAreaModel);
                     Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel);
+                    Game.isFruitAppearOnSnake = collisionController.IsFruitAppearOnSnake(snakeModel, fruitModel);
 
                     //Controler fruit
-                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat,fruitFactory,gameAreaModel, scoreModel);
+                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat, Game.isFruitAppearOnSnake, fruitFactory, gameAreaModel, scoreModel);
+
 
                     //Controler serpent
                     snakeControler.MoveSnake(snakeModel, 
