@@ -20,50 +20,27 @@ namespace BananaSnake.Controller
         /// <param name="isWallHit">Le serpent a touché le mur ?</param>
         /// <param name="isFruitEaten">Le serpent a mangé un fruit ?</param>
         /// <param name="gameArea">l'aire de jeu.</param>
-        public void MoveSnake(Snake snake, Direction newDirection, bool isWallHit, bool isFruitEaten, GameArea gameArea)
+        public void MoveSnake(Snake snake, Direction newDirection, bool isFruitEaten, GameArea gameArea)
         {
             snake.AddHeadToBody();
             snake.HeadDirection = newDirection;
 
-            if (isWallHit)
+            switch (newDirection)
             {
-                switch (newDirection)
-                {
-                    case Direction.up:
-                        snake.HeadPosition.y = gameArea.Height - 1;
-                        break;
-                    case Direction.right:
-                        snake.HeadPosition.x = 0;
-                        break;
-                    case Direction.down:
-                        snake.HeadPosition.y = 0;
-                        break;
-                    case Direction.left:
-                        snake.HeadPosition.x = gameArea.Width - 1;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                switch (newDirection)
-                {
-                    case Direction.up:
-                        snake.HeadPosition.y--;
-                        break;
-                    case Direction.right:
-                        snake.HeadPosition.x++;
-                        break;
-                    case Direction.down:
-                        snake.HeadPosition.y++;
-                        break;
-                    case Direction.left:
-                        snake.HeadPosition.x--;
-                        break;
-                    default:
-                        break;
-                }
+                case Direction.up:
+                    snake.HeadPosition.y = (snake.HeadPosition.y + gameArea.Height - 1) % gameArea.Height;
+                    break;
+                case Direction.right:
+                    snake.HeadPosition.x = (snake.HeadPosition.x + 1) % gameArea.Width;
+                    break;
+                case Direction.down:
+                    snake.HeadPosition.y = (snake.HeadPosition.y + 1) % gameArea.Height;
+                    break;
+                case Direction.left:
+                    snake.HeadPosition.x = (snake.HeadPosition.x + gameArea.Width - 1) % gameArea.Width;
+                    break;
+                default:
+                    break;
             }
 
             if (!isFruitEaten)
