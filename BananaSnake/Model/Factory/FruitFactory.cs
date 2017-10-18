@@ -9,7 +9,7 @@ namespace BananaSnake.Model.Factory
 {
     class FruitFactory
     {
-        public Fruit CreateFruit(GameArea area, Snake snake)
+        public Fruit CreateFruit(GameArea area)
         {
             //Random position 
             Random randX = new Random();
