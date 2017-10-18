@@ -15,7 +15,7 @@ namespace BananaSnake.Model
         public static bool isGamePaused=false;              //jeu en pause
         public static bool isSnakeHitHimself=false;         //Serpent se mange lui-même
         public static bool isFruitAppearOnSnake = false;    //le fruit est apparu dans le serpent
-        public static int gameSpeed=150;                    //Vitesse de jeu
+        public static int speed=250;                    //Vitesse de jeu
         public static bool isFruitEat=false;                //Le fruit a été mangé
         public static bool isWallHit=false;                 // Condition passage autre coté. À voir si nécessaire ici ?
 

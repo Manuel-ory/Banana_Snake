@@ -11,7 +11,7 @@ namespace BananaSnake.Controller
     {
         private int tickDuration;
 
-        private System.DateTime nextTick = new System.DateTime();
+        private System.DateTime nextTick;
 
         /// <summary>
         /// Create a clock to make regular ticks
@@ -22,10 +22,18 @@ namespace BananaSnake.Controller
             tickDuration = duration;
         }
 
-        void WaitNextTick()
+        public void StartClock()
         {
-            nextTick += new TimeSpan(0, 0, 0, 0, tickDuration);
-            Thread.Sleep(nextTick - new System.DateTime());
+            nextTick = System.DateTime.Now;
+        }
+
+        public void WaitNextTick()
+        {
+            nextTick = nextTick.AddMilliseconds(tickDuration);
+            if (nextTick - System.DateTime.Now > TimeSpan.FromMilliseconds(0))
+            {
+                Thread.Sleep(nextTick - System.DateTime.Now);
+            }
         }
 
     }

@@ -33,6 +33,7 @@ namespace BananaSnake.Controller
             SnakeControler snakeControler = new SnakeControler();
             FruitControler fruitControler = new FruitControler();
             CollisionController collisionController = new CollisionController();
+            Clock clock = new Clock();
 
             Direction newDirection;
 
@@ -47,6 +48,7 @@ namespace BananaSnake.Controller
             Console.ReadKey(true);
 
             //*************************START*************************
+            clock.StartClock();
             while (Game.isGameOn)
             {
                 //Récupère nouvelle direction serpent
@@ -83,9 +85,10 @@ namespace BananaSnake.Controller
                 {
                     Console.ReadKey();
                 }
-                
+
                 //Attendre prochain tick
-                System.Threading.Thread.Sleep(250);
+                clock.WaitNextTick();
+                //System.Threading.Thread.Sleep(Game.speed);
             }
 
             

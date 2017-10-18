@@ -14,7 +14,7 @@ namespace BananaSnake.View
     static class EattingFood
     {
         static int frequency = 1000;
-        static int duration = 200;
+        static int duration = 100;
         static public void StartSound()
         {
             Console.Beep(frequency, duration);
