@@ -73,28 +73,21 @@ namespace BananaSnake.Controller
                     if (Game.isSnakeHitHimself)
                     {
                         Game.isGameOn = false;
-                        GameOver.Draw(scoreModel.ScoreValue, gameAreaModel);
-                        Console.ReadKey();
                     }
 
-                    //Dessiner jeu
-                    SnakeView.ClearTail(snakeModel.TailPosition);
-                    SnakeView.DrawHead(snakeModel);
-                    ScoreView.Draw(scoreModel);
-
-                    FruitView.DisplayFruit(fruitModel);
+                    
                 }
-                else
+                //Dessiner jeu
+                ViewStratege.DrawView(scoreModel, gameAreaModel, snakeModel, fruitModel);
+                if (!Game.isGameOn)
                 {
-                    //Dessine pause
+                    Console.ReadKey();
                 }
-
+                
                 //Attendre prochain tick
                 System.Threading.Thread.Sleep(250);
             }
 
-            //Score
-            //ScoreView.Draw(scoreModel);
             
             //Fin du jeu
         }
