@@ -17,15 +17,11 @@ namespace BananaSnake.Model
         public int existingTicksLeft = 40;
         public int earnedPoints = 50;
 
-
         public Fruit(int xposition, int yposition , ConsoleColor color)
         {
             this.FruitPosition = new Position(xposition, yposition);
             this.FruitColor = color; 
 
         }
-
-
-
     }
 }

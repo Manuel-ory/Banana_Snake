@@ -63,7 +63,6 @@ namespace BananaSnake.Controller
                     //Controler fruit
                     fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat, Game.isFruitAppearOnSnake, fruitFactory, gameAreaModel, scoreModel);
 
-
                     //Controler serpent
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
@@ -84,9 +83,6 @@ namespace BananaSnake.Controller
                     ScoreView.Draw(scoreModel);
 
                     FruitView.DisplayFruit(fruitModel);
-
-                   
-
                 }
                 else
                 {
