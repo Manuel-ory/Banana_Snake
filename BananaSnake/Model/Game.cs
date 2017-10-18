@@ -14,6 +14,7 @@ namespace BananaSnake.Model
         public static bool isGameOn=true; //jeu en cours
         public static bool isGamePaused=false;
         public static bool isSnakeHitHimself=false; //condition partie perdue
+        public static bool isFruitAppearOnSnake = false; //if fruit appear on snake
         public static int gameSpeed=150;
         public static bool isFruitEat=false;
 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BananaSnake.Model
 {
+    /// <summary>
+    /// Objet représentant un fruit, avec une position, une couleur et un temps de vie.
+    /// </summary>
     class Fruit
     {
         public ConsoleColor FruitColor;

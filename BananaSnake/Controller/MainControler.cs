@@ -20,7 +20,7 @@ namespace BananaSnake.Controller
         /// </summary>
         public static void Execute()
         {
-            //Setup
+            //*************************SETUP*************************
             //Model
             GameArea gameAreaModel = new GameArea(50,20);
             Snake snakeModel = new Snake();
@@ -28,6 +28,7 @@ namespace BananaSnake.Controller
             FruitFactory fruitFactory = new FruitFactory();
             Fruit fruitModel = fruitFactory.CreateFruit(gameAreaModel);
             
+            //Controllers
             ControlKey KeyController = new ControlKey();
             SnakeControler snakeControler = new SnakeControler();
             FruitControler fruitControler = new FruitControler();
@@ -35,19 +36,17 @@ namespace BananaSnake.Controller
 
             Direction newDirection;
 
-
-
-
+            //Views
             Console.Title = "BananaSnake game";
             TetrisMusic.StartMusic();
-
             GameAreaView.GameAera = gameAreaModel;
             GameAreaView.Draw();
             SnakeView.DrawAllSnake(snakeModel);
 
-            //Ready
+            //*************************READY*************************
             Console.ReadKey(true);
 
+            //*************************START*************************
             while (Game.isGameOn)
             {
                 //Récupère nouvelle direction serpent
@@ -55,24 +54,23 @@ namespace BananaSnake.Controller
                 
                 if (!Game.isGamePaused)
                 {
-                    //Controller collisions
-                    //Check collisions (mur, serpent, fruit)
-
+                    //Controler collisions
                     Game.isWallHit = collisionController.IsHitWall(snakeModel, gameAreaModel, newDirection);//Mintenant inutile
                     Game.isFruitEat = collisionController.IsHitFruit(snakeModel, fruitModel, newDirection, gameAreaModel);
                     Game.isSnakeHitHimself = collisionController.IsHitSnake(snakeModel);
-                    //Act selon collisions
+                    Game.isFruitAppearOnSnake = collisionController.IsFruitAppearOnSnake(snakeModel, fruitModel);
 
-                    //Controller AvancerSerpent
+                    //Controler fruit
+                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat, Game.isFruitAppearOnSnake, fruitFactory, gameAreaModel, scoreModel);
 
-                    fruitModel = fruitControler.UpdateFruit(fruitModel, Game.isFruitEat,fruitFactory,gameAreaModel, scoreModel);
 
+                    //Controler serpent
                     snakeControler.MoveSnake(snakeModel, 
                         newDirection, 
                         Game.isFruitEat,
                         gameAreaModel);
 
-
+                    //Game Over
                     if (Game.isSnakeHitHimself)
                     {
                         Game.isGameOn = false;
