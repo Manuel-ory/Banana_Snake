@@ -25,20 +25,20 @@ namespace BananaSnake.Model
         }
 
 
-        public const char bodySnake = 'o';
+        public const char bodySnake = '█';
         public const char headSnakeUp = '^';
         public const char headSnakeRight = '>';
         public const char headSnakeLeft = '<';
         public const char headSnakeDown = 'v';
-        public const char shapeFruit = 'a';
+        public const char shapeFruit = ')';
         public const char emptyCase = ' ';
         public const char verticalWall = '|';
         public const char horizontalWall = '-';
         public const char corner = '+';
-        public const int widthArea = 20;
-        public const int heightArea = 10;
-        public const int durationTick = 125;
-        public const int durationBeep = durationTick - 20;
+        public const int widthArea = 40;
+        public const int heightArea = 20;
+        public const int durationTick = 250;
+        public const int durationBeep = durationTick - 100;
         public const int frequencyBeep = 1000;
 
 
