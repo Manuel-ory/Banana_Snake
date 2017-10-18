@@ -7,11 +7,27 @@ using BananaSnake.Model;
 
 namespace BananaSnake.View
 {
-    static class GameOver
+    static class PauseOrGameOverView
     {
 
         public static void Draw(int score, GameArea gameArea)
         {
+            if(Game.isGameOn)
+            {
+                Console.SetCursorPosition(gameArea.Width/2 - 2, 1);
+                Console.Write("PAUSE");
+            }
+            else
+            {
+                Console.SetCursorPosition(gameArea.Width / 2 - 5, 1);
+                Console.Write("GAME OVER!");
+
+                Console.SetCursorPosition(1, gameArea.Height);
+                Console.Write("Developped by: the BananaSnake team");
+            }
+            
+
+
             for(int i = 0; i< gameArea.Height; i++)
             {
                 Console.SetCursorPosition(1, i + 1);
@@ -24,8 +40,6 @@ namespace BananaSnake.View
             Console.Write("Score:");
             Console.SetCursorPosition(gameArea.Width/ 2 - 2, gameArea.Height/ 2);
             Console.Write(score);
-            Console.SetCursorPosition(1, gameArea.Height);
-            Console.Write("Game designed by: Anthony Maudry");
         }
 
     }
